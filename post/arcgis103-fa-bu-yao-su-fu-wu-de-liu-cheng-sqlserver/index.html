@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>关于 | 黑鱼的池塘</title>
+<title>ArcGIS10.3 发布要素服务的流程(SQLServer) | 黑鱼的池塘</title>
 <meta name="description" content="温故而知新" />
 <link rel="shortcut icon" href="https://blackfish-wu.github.io//favicon.ico?v=1568208430900">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -73,11 +73,11 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              关于
+              ArcGIS10.3 发布要素服务的流程(SQLServer)
             </h2>
             <div class="post-info">
               <span>
-                2019-01-25
+                2019-08-16
               </span>
               <span>
                 1 min read
@@ -87,7 +87,24 @@
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <p>某校研三GISer</p>
+                <ol>
+<li>创建企业地理数据库<br>
+<img src="https://blackfish-wu.github.io//post-images/1565964186616.png" alt=""></li>
+<li>创建数据库连接<br>
+<img src="https://blackfish-wu.github.io//post-images/1565964341417.png" alt=""></li>
+<li>将待发布为要素服务的数据导入该数据库中。<br>
+<img src="https://blackfish-wu.github.io//post-images/1565964347628.png" alt=""></li>
+<li>右键选择该要素，将其注册为版本化数据<br>
+<img src="https://blackfish-wu.github.io//post-images/1565964354123.png" alt=""></li>
+<li>创建arcgis server，账号密码为arcgis server manager登录的账号密码<br>
+<img src="https://blackfish-wu.github.io//post-images/1565964371531.png" alt=""></li>
+<li>打开服务属性。<br>
+<img src="https://blackfish-wu.github.io//post-images/1565964378603.png" alt=""></li>
+<li>为服务配置数据库连接属性。在选择“是否跟发布的数据库连接相同连接（same as pubilisher database connection）”选项时，应注意arcgis server服务登录的账号是否为本地账户（打开“运行”，输入services.msc，找到arcgis server 服务，右键属性，打开登录标签，查看是否为本地系统账户），如果是就勾选。<br>
+<img src="https://blackfish-wu.github.io//post-images/1565964387856.png" alt=""></li>
+<li>将放置到SDE的图层加载到ArcMap上，选择share as service，勾选要素服务进行发布。</li>
+<li>打开manager， 查看服务是否能正常开启。</li>
+</ol>
 
               </div>
               <div class="toc-container">
@@ -97,6 +114,15 @@
           </article>
         </div>
 
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://blackfish-wu.github.io//post/python-huan-jing-zhong-shi-yong-arcpy">
+              <h3 class="post-title">
+                Python环境中使Arcpy
+              </h3>
+            </a>
+          </div>
         
 
         

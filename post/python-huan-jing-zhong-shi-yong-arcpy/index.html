@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>关于 | 黑鱼的池塘</title>
+<title>Python环境中使Arcpy | 黑鱼的池塘</title>
 <meta name="description" content="温故而知新" />
 <link rel="shortcut icon" href="https://blackfish-wu.github.io//favicon.ico?v=1568208430900">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -73,30 +73,82 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              关于
+              Python环境中使Arcpy
             </h2>
             <div class="post-info">
               <span>
-                2019-01-25
+                2019-08-16
               </span>
               <span>
                 1 min read
               </span>
               
+                <a href="https://blackfish-wu.github.io//tag/p2d99oXTR" class="post-tag">
+                  # GIS
+                </a>
+              
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <p>某校研三GISer</p>
+                <h4 id="手动添加依赖">手动添加依赖</h4>
+<p>在import arcpy之前添加相关的包路径到sys.path即可，<strong>路径以本机安装ArcGIS的路径和版本为准</strong></p>
+<pre><code class="language-Python">import sys
+sys.path.append(&quot;C:\Python27\ArcGIS10.5\Lib\site-packages&quot;)
+sys.path.append(&quot;D:\Software\ArcGIS\Desktop10.5\arcpy&quot;)
+sys.path.append(&quot;D:\Software\ArcGIS\Desktop10.5\ArcToolbox\Scripts&quot;)
+sys.path.append(&quot;D:\Software\ArcGIS\Desktop10.5\bin&quot;)
+sys.path.append(&quot;C:\Python27\ArcGIS10.5\Lib&quot;)
+</code></pre>
+<h4 id="非手动方式">非手动方式</h4>
+<p>每次用到arcpy均要添加相关包有些麻烦。为了避免这种情况，可以直接在[python根目录]\Lib\site-packages下添加一个后缀为.pth的文件，使用记事本打开并添加相关路径，例如：</p>
+<pre><code># [python根目录]\Lib\site-packages\arcpy.pth
+
+C:\Python27\ArcGIS10.5\Lib\site-packages
+D:\Software\ArcGIS\Desktop10.5\arcpy
+D:\Software\ArcGIS\Desktop10.5\ArcToolbox\Scripts
+D:\Software\ArcGIS\Desktop10.5\bin
+C:\Python27\ArcGIS10.5\Lib
+</code></pre>
+<h4 id="出错原因">出错原因</h4>
+<ol>
+<li>DLL %1......：配置的Python环境和ArcGIS使用的Python不是一个C++编辑器编译的，ArcGIS使用的是2.7的32位版本</li>
+</ol>
 
               </div>
               <div class="toc-container">
-                
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E6%89%8B%E5%8A%A8%E6%B7%BB%E5%8A%A0%E4%BE%9D%E8%B5%96">手动添加依赖</a></li>
+<li><a href="#%E9%9D%9E%E6%89%8B%E5%8A%A8%E6%96%B9%E5%BC%8F">非手动方式</a></li>
+<li><a href="#%E5%87%BA%E9%94%99%E5%8E%9F%E5%9B%A0">出错原因</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
               </div>
             </div>
           </article>
         </div>
 
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://blackfish-wu.github.io//post/hello-gridea">
+              <h3 class="post-title">
+                Hello Gridea
+              </h3>
+            </a>
+          </div>
         
 
         

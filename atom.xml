@@ -1,15 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blackfish-wu.github.io/</id>
-    <title>Gridea</title>
-    <updated>2019-08-16T08:58:44.422Z</updated>
+    <title>黑鱼的池塘</title>
+    <updated>2019-09-11T13:27:17.485Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blackfish-wu.github.io/"/>
     <link rel="self" href="https://blackfish-wu.github.io//atom.xml"/>
     <subtitle>温故而知新</subtitle>
     <logo>https://blackfish-wu.github.io//images/avatar.png</logo>
     <icon>https://blackfish-wu.github.io//favicon.ico</icon>
-    <rights>All rights reserved 2019, Gridea</rights>
+    <rights>All rights reserved 2019, 黑鱼的池塘</rights>
+    <entry>
+        <title type="html"><![CDATA[ArcGIS10.3 发布要素服务的流程(SQLServer)]]></title>
+        <id>https://blackfish-wu.github.io//post/arcgis103-fa-bu-yao-su-fu-wu-de-liu-cheng-sqlserver</id>
+        <link href="https://blackfish-wu.github.io//post/arcgis103-fa-bu-yao-su-fu-wu-de-liu-cheng-sqlserver">
+        </link>
+        <updated>2019-08-16T14:02:01.000Z</updated>
+        <content type="html"><![CDATA[<ol>
+<li>创建企业地理数据库<br>
+<img src="https://blackfish-wu.github.io//post-images/1565964186616.png" alt=""></li>
+<li>创建数据库连接<br>
+<img src="https://blackfish-wu.github.io//post-images/1565964341417.png" alt=""></li>
+<li>将待发布为要素服务的数据导入该数据库中。<br>
+<img src="https://blackfish-wu.github.io//post-images/1565964347628.png" alt=""></li>
+<li>右键选择该要素，将其注册为版本化数据<br>
+<img src="https://blackfish-wu.github.io//post-images/1565964354123.png" alt=""></li>
+<li>创建arcgis server，账号密码为arcgis server manager登录的账号密码<br>
+<img src="https://blackfish-wu.github.io//post-images/1565964371531.png" alt=""></li>
+<li>打开服务属性。<br>
+<img src="https://blackfish-wu.github.io//post-images/1565964378603.png" alt=""></li>
+<li>为服务配置数据库连接属性。在选择“是否跟发布的数据库连接相同连接（same as pubilisher database connection）”选项时，应注意arcgis server服务登录的账号是否为本地账户（打开“运行”，输入services.msc，找到arcgis server 服务，右键属性，打开登录标签，查看是否为本地系统账户），如果是就勾选。<br>
+<img src="https://blackfish-wu.github.io//post-images/1565964387856.png" alt=""></li>
+<li>将放置到SDE的图层加载到ArcMap上，选择share as service，勾选要素服务进行发布。</li>
+<li>打开manager， 查看服务是否能正常开启。</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Python环境中使Arcpy]]></title>
+        <id>https://blackfish-wu.github.io//post/python-huan-jing-zhong-shi-yong-arcpy</id>
+        <link href="https://blackfish-wu.github.io//post/python-huan-jing-zhong-shi-yong-arcpy">
+        </link>
+        <updated>2019-08-16T09:33:00.000Z</updated>
+        <content type="html"><![CDATA[<h4 id="手动添加依赖">手动添加依赖</h4>
+<p>在import arcpy之前添加相关的包路径到sys.path即可，<strong>路径以本机安装ArcGIS的路径和版本为准</strong></p>
+<pre><code class="language-Python">import sys
+sys.path.append(&quot;C:\Python27\ArcGIS10.5\Lib\site-packages&quot;)
+sys.path.append(&quot;D:\Software\ArcGIS\Desktop10.5\arcpy&quot;)
+sys.path.append(&quot;D:\Software\ArcGIS\Desktop10.5\ArcToolbox\Scripts&quot;)
+sys.path.append(&quot;D:\Software\ArcGIS\Desktop10.5\bin&quot;)
+sys.path.append(&quot;C:\Python27\ArcGIS10.5\Lib&quot;)
+</code></pre>
+<h4 id="非手动方式">非手动方式</h4>
+<p>每次用到arcpy均要添加相关包有些麻烦。为了避免这种情况，可以直接在[python根目录]\Lib\site-packages下添加一个后缀为.pth的文件，使用记事本打开并添加相关路径，例如：</p>
+<pre><code># [python根目录]\Lib\site-packages\arcpy.pth
+
+C:\Python27\ArcGIS10.5\Lib\site-packages
+D:\Software\ArcGIS\Desktop10.5\arcpy
+D:\Software\ArcGIS\Desktop10.5\ArcToolbox\Scripts
+D:\Software\ArcGIS\Desktop10.5\bin
+C:\Python27\ArcGIS10.5\Lib
+</code></pre>
+<h4 id="出错原因">出错原因</h4>
+<ol>
+<li>DLL %1......：配置的Python环境和ArcGIS使用的Python不是一个C++编辑器编译的，ArcGIS使用的是2.7的32位版本</li>
+</ol>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>https://blackfish-wu.github.io//post/hello-gridea</id>
