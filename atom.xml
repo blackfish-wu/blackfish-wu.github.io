@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blackfish-wu.github.io/</id>
     <title>黑鱼的池塘</title>
-    <updated>2019-09-23T07:58:00.484Z</updated>
+    <updated>2019-09-27T03:23:31.490Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blackfish-wu.github.io/"/>
     <link rel="self" href="https://blackfish-wu.github.io//atom.xml"/>
@@ -11,15 +11,19 @@
     <icon>https://blackfish-wu.github.io//favicon.ico</icon>
     <rights>All rights reserved 2019, 黑鱼的池塘</rights>
     <entry>
-        <title type="html"><![CDATA[树]]></title>
-        <id>https://blackfish-wu.github.io//post/shu</id>
-        <link href="https://blackfish-wu.github.io//post/shu">
+        <title type="html"><![CDATA[OGC的Simple Features Access(ISO 19125)标准]]></title>
+        <id>https://blackfish-wu.github.io//post/ogc-de-simple-features-accessiso-19125biao-zhun</id>
+        <link href="https://blackfish-wu.github.io//post/ogc-de-simple-features-accessiso-19125biao-zhun">
         </link>
-        <updated>2019-09-19T02:18:27.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="树的表示">树的表示</h2>
-<h3 id="儿子兄弟表示法">儿子兄弟表示法</h3>
-<p>结点设置两个指针域，一个指向儿子，一个指向右侧的第一个兄弟<br>
-<img src="https://blackfish-wu.github.io//post-images/1568859566733.png" alt=""></p>
+        <updated>2019-09-23T12:29:03.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="1-简介">1 简介</h2>
+<p>OpenGIS定义的Simple Features Access（SFA， ISO 19125）标准的第二部分定义了包含了空间和非空间属性的要素集合的标准SQL模式。这里的要素集是指带地理属性的表。该标准主要包含以下4点：</p>
+<ol>
+<li>确立了一个表达要素的框架</li>
+<li>确立了框架的一系列术语的定义</li>
+<li>定义了一个用于定义几何属性的简单几何概述</li>
+<li><strong>描述了一系列SQL几何类型及其对应的SQL函数</strong></li>
+</ol>
 ]]></content>
     </entry>
     <entry>
