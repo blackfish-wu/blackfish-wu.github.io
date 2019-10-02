@@ -1,0 +1,404 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>树 | 黑鱼的池塘</title>
+<meta name="description" content="温故而知新" />
+<link rel="shortcut icon" href="https://blackfish-wu.github.io//favicon.ico?v=1570026260113">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://blackfish-wu.github.io//styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://blackfish-wu.github.io/">
+  <img class="avatar" src="https://blackfish-wu.github.io//images/avatar.png?v=1570026260113" alt="">
+  </a>
+  <h1 class="site-title">
+    黑鱼的池塘
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              树
+            </h2>
+            <div class="post-info">
+              <span>
+                2019-09-19
+              </span>
+              <span>
+                7 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h2 id="1-树的表示">1 树的表示</h2>
+<h3 id="11-儿子兄弟表示法">1.1 儿子兄弟表示法</h3>
+<p>结点设置两个指针域，一个指向儿子，一个指向右侧的第一个兄弟<br>
+<img src="https://blackfish-wu.github.io//post-images/1568859566733.png" alt=""></p>
+<h2 id="2-二叉树">2 二叉树</h2>
+<h3 id="21-定义">2.1 定义</h3>
+<p>在计算机科学中，二叉树是每个结点最多有两个子树的树结构，结点有左右之分。</p>
+<h3 id="22-特殊二叉树">2.2 特殊二叉树</h3>
+<ol>
+<li>斜二叉树（Skewed Binary Tree）: 只有左子节点或只有右子节点的二叉树称为斜二叉树</li>
+<li>满二叉树（Full Binary Tree）：又叫完美二叉树（Perfect Binary Tree）。除最后一层无任何子节点外，每一层上的所有结点都有两个子结点的二叉树。</li>
+<li>完全二叉树（Compelete Binary Tree）：对于深度为K的，有n个结点的二叉树，当且仅当其每一个结点都与深度为K的满二叉树中编号从1至n的结点一一对应时称之为完全二叉树。</li>
+</ol>
+<h3 id="23-性质">2.3 性质</h3>
+<ol>
+<li>一个二叉树的第i层的最大结点数为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msup><mo separator="true">,</mo><mi>i</mi><mo>≥</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2^{i-1}, i \geq 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.019104em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></li>
+<li>深度为k的二叉树最大结点数为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>k</mi></msup><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mi>k</mi><mo>≥</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2^k-1, k \geq 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.932438em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></li>
+<li>对于任何一颗非空二叉树T，假设<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>n</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">n_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>表示叶结点的个数，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>n</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">n_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>表示度为2的结点个数，则两者满足关系<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>n</mi><mn>0</mn></msub><mo>=</mo><msub><mi>n</mi><mn>2</mn></msub><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n_0 = n_2+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>。推导：边总数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mo>=</mo><msub><mi>n</mi><mn>0</mn></msub><mo>+</mo><msub><mi>n</mi><mn>1</mn></msub><mo>+</mo><msub><mi>n</mi><mn>2</mn></msub><mo>−</mo><mn>1</mn><mo>=</mo><msub><mi>n</mi><mn>1</mn></msub><mo>+</mo><mn>2</mn><msub><mi>n</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">s=n_0+n_1+n_2-1=n_1+2n_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">s</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="mord">2</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></li>
+</ol>
+<h3 id="24-存储结构">2.4 存储结构</h3>
+<h4 id="241-顺序存储结构">2.4.1 顺序存储结构</h4>
+<ul>
+<li>完全二叉树：按从上至下、从左至右顺序存储到数组。非根结点的父节点序号是[i/2]，结点的左孩子序号是2i，结点的右孩子序号是2i+1</li>
+<li>一般二叉树：同样可以按照这种结构，但是会造成空间浪费<br>
+<img src="https://blackfish-wu.github.io//post-images/1569569016795.png" alt=""></li>
+</ul>
+<h4 id="242-链表存储结构">2.4.2 链表存储结构</h4>
+<p>定义一个左指针、数据和右指针的结构体来存放结点</p>
+<h3 id="25-遍历">2.5 遍历</h3>
+<h4 id="251-递归遍历">2.5.1 递归遍历</h4>
+<ol>
+<li>先序遍历：（1）先访问节点；（2）先序遍历左子树；（3）先序遍历右子树</li>
+</ol>
+<pre><code class="language-C">void PreOrderTraversal( BinTree BT )
+    if(BT){
+        printf(&quot;%d&quot;, BT-&gt;Data);
+        PreOrderTraversal( BT-&gt;Left );
+        PreOrderTraversal( BT-&gt;Right );
+    }
+</code></pre>
+<ol start="2">
+<li>中序遍历：（1）先序遍历左子树；（2）访问根节点；（3）先序遍历右子树</li>
+</ol>
+<pre><code class="language-C">void InOrderTraversal( BinTree BT )
+    if(BT){
+        PreOrderTraversal( BT-&gt;Left );
+        printf(&quot;%d&quot;, BT-&gt;Data);
+        PreOrderTraversal( BT-&gt;Right );
+    }
+</code></pre>
+<ol start="3">
+<li>后序遍历：（1）先序遍历左子树；（2）先序遍历右子树；（3）访问根节点</li>
+</ol>
+<pre><code class="language-C">void PostOrderTraversal( BinTree BT )
+    if(BT){
+        PreOrderTraversal( BT-&gt;Left );
+        printf(&quot;%d&quot;, BT-&gt;Data);
+        PreOrderTraversal( BT-&gt;Right );
+    }
+</code></pre>
+<h4 id="252-非递归遍历">2.5.2 非递归遍历</h4>
+<ol>
+<li>前序遍历：（1）访问并遍历左结点（2）从栈中取出结点；（3）访问右结点，回到（1）</li>
+</ol>
+<pre><code class="language-C">void PreOrderTraversal( BinTree BT ){
+    BinTree T = BT;
+    Stack S = CreateStack( MaxSize );
+    while( T || !IsEmpty(S) ){
+        while( T ){
+            printf(&quot;%5d&quot;, T-&gt;Data);
+            Push(S,T);
+            T = T-&gt;Left;
+        }
+        while( !IsEmpty(S) ){
+            T = Pop(S);
+            T = T-&gt;Right;
+        }
+    }
+}
+</code></pre>
+<ol start="2">
+<li>中序遍历：（1）先遍历左子树，压入栈中，直至左子树为空；（2）从栈中取出一个结点，访问它；（3）讲该结点的右子树作为起始结点，回到（1）</li>
+</ol>
+<pre><code class="language-C">void InOrderTraversal( BinTree BT ){
+    BinTree T = BT;
+    Stack S = CreateStack( MaxSize );
+    while( T || !IsEmpty(S) ){
+        while( T ){
+            Push(S,T);
+            T = T-&gt;Left;
+        }
+        while( !IsEmpty(S) ){
+            T = Pop(S);
+            printf(&quot;%5d&quot;, T-&gt;Data);
+            T = T-&gt;Right;
+        }
+    }
+}
+</code></pre>
+<ol start="3">
+<li>后序遍历：（1）当前结点左子树不为空且左孩子和右孩子没有被访问过的情况下，不断入栈左子树；（2）左子树访问结束，判断当前结点是否有右孩子且右孩子没有访问过的情况下，入栈右孩子，回到步骤（1）；（3）当最后一个右孩子被访问到时，开始出栈并访问该结点。</li>
+</ol>
+<pre><code class="language-C">void PostOrderTraversal( BinTree BT ){
+    BinTree T = BT;
+    Set Visited = CreateSet( MaxSize );
+    Stack S = CreateStack( MaxSize );
+    Push(Visited, T);
+    Push(S, T)
+    while(!IsEmpty(Visited)){
+        // 查看栈顶的结点左右结点是否为空或左右结点是否都被访问过
+        BinTree Node = findUnvisitedNode(Peak(S), Visited);
+        if(Node==null){
+            T = Pop(S);
+            printf(&quot;%d&quot;, T-&gt;data);
+        }else{
+            Push(visited, Node);
+            Push(S, Node);
+        }
+    }
+}
+
+BinTree findUnvisitedNode(BinTree Node, Set Visited){
+    if (Node-&gt;left != null &amp;&amp; !Visited.contains(Node-&gt;left)) {
+        return Node.left;
+    } else if (Node-&gt;right != null &amp;&amp; !Visited.contains(Node-&gt;right))
+        return Node-&gt;right;
+    else
+        return null;
+}
+</code></pre>
+<h3 id="26-二叉搜索树">2.6 二叉搜索树</h3>
+<h4 id="261-定义">2.6.1 定义</h4>
+<p>二叉搜索树：一棵二叉树，可以为空，如果不为空，满足一下性质：</p>
+<ol>
+<li>非空左子树的所有键值小于根结点的键值。</li>
+<li>非空右子树的所有键值大于根结点的键值。</li>
+<li>左、右子树都是二叉搜索树。</li>
+</ol>
+<h4 id="261-操作函数">2.6.1 操作函数</h4>
+<ol>
+<li>Position Find(ElementType X, BinTree BST)：从二叉树BST中查找元素X，返回结点所在的地址</li>
+</ol>
+<pre><code class="language-C">// 递归版本
+Position Find(ElementType X, BinTree BST){
+    if(!BST) return null;    /* 查找失败 */
+    if(X &gt; BST-&gt;Data){
+        Find(X, BST-&gt;Right); /* 往右子树查找 */
+    } else if(X &lt; BST-&gt;Data){
+        Find(X, BST-&gt;Left);  /* 往左子树查找 */
+    }else{  /* X == BST-&gt;Data */
+        return BST;          /* 查找成功 */
+    }
+}
+// 1. 递归函数效率低，非递归函数执行效率高
+// 2. 尾递归函数均可改为迭代函数
+// 非递归版本
+Position Find(ElementType X, BinTree BST){
+    while(BST){
+        if(X &gt; BST-&gt;Data){
+            BST = BST.Right;  /* 往右子树查找 */
+        } else if(X &lt; BST-&gt;Data){
+            BST = BST.Left;   /* 往左子树查找 */
+        }else{
+            return BST;       /* 查找成功 */
+        }
+    }
+    return null;              /* 查找失败 */
+}
+</code></pre>
+<ol start="2">
+<li>Position FindMin(BinTree BST)：从二叉搜素树BST中查找并返回最小元素所在结点的地址</li>
+</ol>
+<pre><code class="language-C">// 递归
+Position FindMin(BinTree BST){
+    if(!BST) return null;
+    if(BST-&gt;Left){
+        return BST;
+    }else{
+        return FindMin(BST-&gt;Left)
+    }
+}
+// 非递归
+Position FindMin(BinTree BST){
+    if(!BST) return null;
+    while(BST-&gt;Left){
+        BST = BST-&gt;Left
+    }
+    return BST;
+}
+</code></pre>
+<ol start="3">
+<li>Position FindMax(BinTree BST)：从二叉搜素树BST中查找并返回最大元素所在结点的地址</li>
+</ol>
+<pre><code class="language-C">// 递归方式
+Position FindMax(BinTree BST){
+    if(!BST) return null;
+    if(!BST-&gt;Right){
+        return BST;
+    }else{
+        return FindMin(BST-&gt;Left)
+    }
+}
+// 非递归
+Position FindMax(BinTree BST){
+    if(!BST) return null;
+    while(BST-&gt;Right){
+        BST = BST-&gt;Right
+    }
+    return BST;
+}
+</code></pre>
+<ol start="4">
+<li>BinTree Insert(ElementType X, BinTree BST)：将元素X插入到二叉搜索树BST中</li>
+<li>BinTree Delete(ElementType X, BinTree BST)：从二叉搜索树BST中删除值等于元素X的结点</li>
+</ol>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#1-%E6%A0%91%E7%9A%84%E8%A1%A8%E7%A4%BA">1 树的表示</a>
+<ul>
+<li><a href="#11-%E5%84%BF%E5%AD%90%E5%85%84%E5%BC%9F%E8%A1%A8%E7%A4%BA%E6%B3%95">1.1 儿子兄弟表示法</a></li>
+</ul>
+</li>
+<li><a href="#2-%E4%BA%8C%E5%8F%89%E6%A0%91">2 二叉树</a>
+<ul>
+<li><a href="#21-%E5%AE%9A%E4%B9%89">2.1 定义</a></li>
+<li><a href="#22-%E7%89%B9%E6%AE%8A%E4%BA%8C%E5%8F%89%E6%A0%91">2.2 特殊二叉树</a></li>
+<li><a href="#23-%E6%80%A7%E8%B4%A8">2.3 性质</a></li>
+<li><a href="#24-%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84">2.4 存储结构</a>
+<ul>
+<li><a href="#241-%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84">2.4.1 顺序存储结构</a></li>
+<li><a href="#242-%E9%93%BE%E8%A1%A8%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84">2.4.2 链表存储结构</a></li>
+</ul>
+</li>
+<li><a href="#25-%E9%81%8D%E5%8E%86">2.5 遍历</a>
+<ul>
+<li><a href="#251-%E9%80%92%E5%BD%92%E9%81%8D%E5%8E%86">2.5.1 递归遍历</a></li>
+<li><a href="#252-%E9%9D%9E%E9%80%92%E5%BD%92%E9%81%8D%E5%8E%86">2.5.2 非递归遍历</a></li>
+</ul>
+</li>
+<li><a href="#26-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91">2.6 二叉搜索树</a>
+<ul>
+<li><a href="#261-%E5%AE%9A%E4%B9%89">2.6.1 定义</a></li>
+<li><a href="#261-%E6%93%8D%E4%BD%9C%E5%87%BD%E6%95%B0">2.6.1 操作函数</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
+  <a class="rss" href="https://blackfish-wu.github.io//atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+
+  let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+  // This should probably be throttled.
+  // Especially because it triggers during smooth scrolling.
+  // https://lodash.com/docs/4.17.10#throttle
+  // You could do like...
+  // window.addEventListener("scroll", () => {
+  //    _.throttle(doThatStuff, 100);
+  // });
+  // Only not doing it here to keep this Pen dependency-free.
+
+  window.addEventListener("scroll", event => {
+    let fromTop = window.scrollY;
+
+    mainNavLinks.forEach((link, index) => {
+      let section = document.getElementById(decodeURI(link.hash).substring(1));
+      let nextSection = null
+      if (mainNavLinks[index + 1]) {
+        nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+      }
+      console.log('section.offsetHeight', section.offsetHeight);
+      if (section.offsetTop <= fromTop) {
+        if (nextSection) {
+          if (nextSection.offsetTop > fromTop) {
+            link.classList.add("current");
+          } else {
+            link.classList.remove("current");    
+          }
+        } else {
+          link.classList.add("current");
+        }
+      } else {
+        link.classList.remove("current");
+      }
+    });
+  });
+
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>
