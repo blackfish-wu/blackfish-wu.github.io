@@ -2,18 +2,18 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blackfish-wu.github.io/</id>
     <title>黑鱼的池塘</title>
-    <updated>2020-01-04T03:18:56.234Z</updated>
+    <updated>2020-02-09T09:07:17.140Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blackfish-wu.github.io/"/>
-    <link rel="self" href="https://blackfish-wu.github.io//atom.xml"/>
+    <link rel="self" href="https://blackfish-wu.github.io/atom.xml"/>
     <subtitle>温故而知新</subtitle>
-    <logo>https://blackfish-wu.github.io//images/avatar.png</logo>
-    <icon>https://blackfish-wu.github.io//favicon.ico</icon>
+    <logo>https://blackfish-wu.github.io/images/avatar.png</logo>
+    <icon>https://blackfish-wu.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 黑鱼的池塘</rights>
     <entry>
         <title type="html"><![CDATA[OGC的Simple Features Access(ISO 19125)标准]]></title>
-        <id>https://blackfish-wu.github.io//post/ogc-de-simple-features-accessiso-19125biao-zhun</id>
-        <link href="https://blackfish-wu.github.io//post/ogc-de-simple-features-accessiso-19125biao-zhun">
+        <id>https://blackfish-wu.github.io/post/ogc-de-simple-features-accessiso-19125biao-zhun</id>
+        <link href="https://blackfish-wu.github.io/post/ogc-de-simple-features-accessiso-19125biao-zhun">
         </link>
         <updated>2019-09-23T12:29:03.000Z</updated>
         <content type="html"><![CDATA[<h2 id="1-简介">1 简介</h2>
@@ -27,26 +27,420 @@
 ]]></content>
     </entry>
     <entry>
+        <title type="html"><![CDATA[树]]></title>
+        <id>https://blackfish-wu.github.io/post/shu</id>
+        <link href="https://blackfish-wu.github.io/post/shu">
+        </link>
+        <updated>2019-09-19T02:18:27.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="1-树的表示">1 树的表示</h2>
+<h3 id="11-儿子兄弟表示法">1.1 儿子兄弟表示法</h3>
+<p>结点设置两个指针域，一个指向儿子，一个指向右侧的第一个兄弟<br>
+<img src="https://blackfish-wu.github.io//post-images/1568859566733.png" alt="" loading="lazy"></p>
+<h2 id="2-二叉树">2 二叉树</h2>
+<h3 id="21-定义">2.1 定义</h3>
+<p>在计算机科学中，二叉树是每个结点最多有两个子树的树结构，结点有左右之分。</p>
+<h3 id="22-特殊二叉树">2.2 特殊二叉树</h3>
+<ol>
+<li>斜二叉树（Skewed Binary Tree）: 只有左子节点或只有右子节点的二叉树称为斜二叉树</li>
+<li>满二叉树（Full Binary Tree）：又叫完美二叉树（Perfect Binary Tree）。除最后一层无任何子节点外，每一层上的所有结点都有两个子结点的二叉树。</li>
+<li>完全二叉树（Compelete Binary Tree）：对于深度为K的，有n个结点的二叉树，当且仅当其每一个结点都与深度为K的满二叉树中编号从1至n的结点一一对应时称之为完全二叉树。</li>
+</ol>
+<h3 id="23-性质">2.3 性质</h3>
+<ol>
+<li>一个二叉树的第i层的最大结点数为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msup><mo separator="true">,</mo><mi>i</mi><mo>≥</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2^{i-1}, i \geq 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.019104em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></li>
+<li>深度为k的二叉树最大结点数为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>k</mi></msup><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mi>k</mi><mo>≥</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2^k-1, k \geq 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.932438em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></li>
+<li>对于任何一颗非空二叉树T，假设<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>n</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">n_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>表示叶结点的个数，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>n</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">n_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>表示度为2的结点个数，则两者满足关系<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>n</mi><mn>0</mn></msub><mo>=</mo><msub><mi>n</mi><mn>2</mn></msub><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n_0 = n_2+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>。推导：边总数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mo>=</mo><msub><mi>n</mi><mn>0</mn></msub><mo>+</mo><msub><mi>n</mi><mn>1</mn></msub><mo>+</mo><msub><mi>n</mi><mn>2</mn></msub><mo>−</mo><mn>1</mn><mo>=</mo><msub><mi>n</mi><mn>1</mn></msub><mo>+</mo><mn>2</mn><msub><mi>n</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">s=n_0+n_1+n_2-1=n_1+2n_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">s</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="mord">2</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></li>
+</ol>
+<h3 id="24-存储结构">2.4 存储结构</h3>
+<h4 id="241-顺序存储结构">2.4.1 顺序存储结构</h4>
+<ul>
+<li>完全二叉树：按从上至下、从左至右顺序存储到数组。非根结点的父节点序号是[i/2]，结点的左孩子序号是2i，结点的右孩子序号是2i+1</li>
+<li>一般二叉树：同样可以按照这种结构，但是会造成空间浪费<br>
+<img src="https://blackfish-wu.github.io//post-images/1569569016795.png" alt="" loading="lazy"></li>
+</ul>
+<h4 id="242-链表存储结构">2.4.2 链表存储结构</h4>
+<p>定义一个左指针、数据和右指针的结构体来存放结点</p>
+<h3 id="25-遍历">2.5 遍历</h3>
+<h4 id="251-递归遍历">2.5.1 递归遍历</h4>
+<ol>
+<li>先序遍历：（1）先访问节点；（2）先序遍历左子树；（3）先序遍历右子树</li>
+</ol>
+<pre><code class="language-C">void PreOrderTraversal( BinTree BT )
+    if(BT){
+        printf(&quot;%d&quot;, BT-&gt;Data);
+        PreOrderTraversal( BT-&gt;Left );
+        PreOrderTraversal( BT-&gt;Right );
+    }
+</code></pre>
+<ol start="2">
+<li>中序遍历：（1）先序遍历左子树；（2）访问根节点；（3）先序遍历右子树</li>
+</ol>
+<pre><code class="language-C">void InOrderTraversal( BinTree BT )
+    if(BT){
+        InOrderTraversal( BT-&gt;Left );
+        printf(&quot;%d&quot;, BT-&gt;Data);
+        InOrderTraversal( BT-&gt;Right );
+    }
+</code></pre>
+<ol start="3">
+<li>后序遍历：（1）先序遍历左子树；（2）先序遍历右子树；（3）访问根节点</li>
+</ol>
+<pre><code class="language-C">void PostOrderTraversal( BinTree BT )
+    if(BT){
+        PostOrderTraversal( BT-&gt;Left );
+        PostOrderTraversal( BT-&gt;Right );
+        printf(&quot;%d&quot;, BT-&gt;Data);
+    }
+</code></pre>
+<h4 id="252-非递归遍历">2.5.2 非递归遍历</h4>
+<ol>
+<li>前序遍历：（1）访问并遍历左结点（2）从栈中取出结点；（3）访问右结点，回到（1）</li>
+</ol>
+<pre><code class="language-C">void PreOrderTraversal( BinTree BT ){
+    BinTree T = BT;
+    Stack S = CreateStack( MaxSize );
+    while( T || !IsEmpty(S) ){
+        while( T ){
+            printf(&quot;%5d&quot;, T-&gt;Data);
+            Push(S,T);
+            T = T-&gt;Left;
+        }
+        while( !IsEmpty(S) ){
+            T = Pop(S);
+            T = T-&gt;Right;
+        }
+    }
+}
+</code></pre>
+<ol start="2">
+<li>中序遍历：（1）先遍历左子树，压入栈中，直至左子树为空；（2）从栈中取出一个结点，访问它；（3）讲该结点的右子树作为起始结点，回到（1）</li>
+</ol>
+<pre><code class="language-C">void InOrderTraversal( BinTree BT ){
+    BinTree T = BT;
+    Stack S = CreateStack( MaxSize );
+    while( T || !IsEmpty(S) ){
+        while( T ){
+            Push(S,T);
+            T = T-&gt;Left;
+        }
+        while( !IsEmpty(S) ){
+            T = Pop(S);
+            printf(&quot;%5d&quot;, T-&gt;Data);
+            T = T-&gt;Right;
+        }
+    }
+}
+</code></pre>
+<ol start="3">
+<li>后序遍历：（1）当前结点左子树不为空且左孩子和右孩子没有被访问过的情况下，不断入栈左子树；（2）左子树访问结束，判断当前结点是否有右孩子且右孩子没有访问过的情况下，入栈右孩子，回到步骤（1）；（3）当最后一个右孩子被访问到时，开始出栈并访问该结点。</li>
+</ol>
+<pre><code class="language-C">void PostOrderTraversal( BinTree BT ){
+    BinTree T = BT;
+    Set Visited = CreateSet( MaxSize );
+    Stack S = CreateStack( MaxSize );
+    Push(Visited, T);
+    Push(S, T);
+    while(!IsEmpty(Visited)){
+        // 查看栈顶的结点左右结点是否为空或左右结点是否都被访问过
+        BinTree Node = findUnvisitedNode(Peak(S), Visited);
+        if(Node==null){
+            T = Pop(S);
+            printf(&quot;%d&quot;, T-&gt;data);
+        }else{
+            Push(visited, Node);
+            Push(S, Node);
+        }
+    }
+}
+
+BinTree findUnvisitedNode(BinTree Node, Set Visited){
+    if (Node-&gt;left != null &amp;&amp; !Visited.contains(Node-&gt;left)) {
+        return Node.left;
+    } else if (Node-&gt;right != null &amp;&amp; !Visited.contains(Node-&gt;right))
+        return Node-&gt;right;
+    else
+        return null;
+}
+</code></pre>
+<h3 id="26-二叉搜索树">2.6 二叉搜索树</h3>
+<h4 id="261-定义">2.6.1 定义</h4>
+<p>二叉搜索树：一棵二叉树，可以为空，如果不为空，满足一下性质：</p>
+<ol>
+<li>非空左子树的所有键值小于根结点的键值。</li>
+<li>非空右子树的所有键值大于根结点的键值。</li>
+<li>左、右子树都是二叉搜索树。</li>
+</ol>
+<h4 id="261-操作函数">2.6.1 操作函数</h4>
+<ol>
+<li>Position Find(ElementType X, BinTree BST)：从二叉树BST中查找元素X，返回结点所在的地址</li>
+</ol>
+<pre><code class="language-C">// 递归版本
+Position Find(ElementType X, BinTree BST){
+    if(!BST) return null;    /* 查找失败 */
+    if(X &gt; BST-&gt;Data){
+        Find(X, BST-&gt;Right); /* 往右子树查找 */
+    } else if(X &lt; BST-&gt;Data){
+        Find(X, BST-&gt;Left);  /* 往左子树查找 */
+    }else{  /* X == BST-&gt;Data */
+        return BST;          /* 查找成功 */
+    }
+}
+// 1. 递归函数效率低，非递归函数执行效率高
+// 2. 尾递归函数均可改为迭代函数
+// 非递归版本
+Position Find(ElementType X, BinTree BST){
+    while(BST){
+        if(X &gt; BST-&gt;Data){
+            BST = BST.Right;  /* 往右子树查找 */
+        } else if(X &lt; BST-&gt;Data){
+            BST = BST.Left;   /* 往左子树查找 */
+        }else{
+            return BST;       /* 查找成功 */
+        }
+    }
+    return null;              /* 查找失败 */
+}
+</code></pre>
+<ol start="2">
+<li>Position FindMin(BinTree BST)：从二叉搜素树BST中查找并返回最小元素所在结点的地址</li>
+</ol>
+<pre><code class="language-C">// 递归
+Position FindMin(BinTree BST){
+    if(!BST) return null;
+    if(BST-&gt;Left){
+        return BST;
+    }else{
+        return FindMin(BST-&gt;Left);
+    }
+}
+// 非递归
+Position FindMin(BinTree BST){
+    if(!BST) return null;
+    while(BST-&gt;Left){
+        BST = BST-&gt;Left;
+    }
+    return BST;
+}
+</code></pre>
+<ol start="3">
+<li>Position FindMax(BinTree BST)：从二叉搜素树BST中查找并返回最大元素所在结点的地址</li>
+</ol>
+<pre><code class="language-C">// 递归方式
+Position FindMax(BinTree BST){
+    if(!BST) return null;
+    if(!BST-&gt;Right){
+        return BST;
+    }else{
+        return FindMin(BST-&gt;Left);
+    }
+}
+// 非递归
+Position FindMax(BinTree BST){
+    if(!BST) return null;
+    while(BST-&gt;Right){
+        BST = BST-&gt;Right;
+    }
+    return BST;
+}
+</code></pre>
+<ol start="4">
+<li>BinTree Insert(ElementType X, BinTree BST)：将元素X插入到二叉搜索树BST中</li>
+</ol>
+<pre><code class="language-C">BinTree Insert(ElementType X, BinTree BST){
+    if(!BST){
+        BST = malloc(sizeof(struct TreeNode));
+        BST-&gt;Left = null;
+        BST-&gt;Right = null;
+    }else{
+        if(X&gt;BST-&gt;Data){
+            BST-&gt;Right = Insert(X, BST-&gt;Right);
+        }else if(X&lt;BST-&gt;Data){
+            BST-&gt;Left = Insert(X, BST-&gt;Left);
+        }
+    }
+    return BST
+}
+</code></pre>
+<ol start="5">
+<li>BinTree Delete(ElementType X, BinTree BST)：从二叉搜索树BST中删除值等于元素X的结点</li>
+</ol>
+<pre><code class="language-C">BinTree Delete(ElementType X, BinTree BST){
+    Position Tmp;
+    if(!BST) printf(&quot;要深处的结点未找到&quot;)
+    else if(X&gt;BST-&gt;Data){
+        BST-&gt;Right = Delete(X, BST-&gt;Right);      /* 右子树递归删除 */
+    }else if(X&lt;BST-&gt;Data){
+        BST-&gt;Left = Delete(X, BST-&gt;Left);        /* 左子树递归删除 */
+    }else{      /* 找到被删除结点时 */
+        if(BST-&gt;Left&amp;&amp;BST-&gt;Right){               /* 删除的结点左子树和右子树都存在 */
+            Tmp = FinMin(BST-&gt;Right);            /* 在右子树中找到最小结点填充自身 */
+            BST-&gt;Data = Tmp-&gt;Data;                      
+            BST-&gt;Right = Delete(BST-&gt;Data, BST-&gt;Right);  /* 右子树递归删除最小结点 */
+        }else{   /* 被删除结点存在一个结点或结点均不存在时 */
+            Tmp = BST;
+            if(BST-&gt;Left){           /* 如果左结点存在 */
+                BST = BST-&gt;Left;
+            }else if(BST-&gt;Right){    /* 如果右结点存在 */
+                 BST = BST-&gt;Right;  
+            }
+            free(Tmp);               /* 释放删除结点的空间 */
+        }
+    }
+    return BST
+}
+</code></pre>
+<h3 id="27-平衡二叉树">2.7 平衡二叉树</h3>
+<h4 id="271-定义">2.7.1 定义</h4>
+<p>平衡因子（Balanced Factor，BF）：BF(T) = <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>h</mi><mi>L</mi></msub><mo>−</mo><msub><mi>h</mi><mi>R</mi></msub></mrow><annotation encoding="application/x-tex">h_L - h_R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">L</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.00773em;">R</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，其中<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>h</mi><mi>L</mi></msub></mrow><annotation encoding="application/x-tex">h_L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">L</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>h</mi><mi>R</mi></msub></mrow><annotation encoding="application/x-tex">h_R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.00773em;">R</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>分别为T的左、右子树的高度。<br>
+平衡二叉树（Balanced Binary Tree）：又叫AVL树，AVL树本质还是一棵二叉查找树，可为空树，或者任一结点的左、右子树高度差的绝对值不超过1，即<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">∣</mi><mi>B</mi><mi>F</mi><mo>(</mo><mi>T</mi><mo>)</mo><mi mathvariant="normal">∣</mi><mo>≤</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">|BF(T)| \leq 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mclose">)</span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></p>
+<h4 id="272-性质">2.7.2 性质</h4>
+<ol>
+<li>给定n个结点的AVL树的最大高度是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>h</mi><mo>=</mo><mi>c</mi><mi>e</mi><mi>i</mi><mi>l</mi><mi>i</mi><mi>n</mi><mi>g</mi><mo>(</mo><mi>l</mi><mi>o</mi><msub><mi>g</mi><mn>2</mn></msub><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">h=ceiling(log_2 n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">h</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault">e</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>，一个根节点时，h=0</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>n</mi><mi>h</mi></msub><mo>=</mo><msub><mi>n</mi><mrow><mi>h</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>+</mo><msub><mi>n</mi><mrow><mi>h</mi><mo>−</mo><mn>2</mn></mrow></msub><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n_h = n_{h-1} + n_{h-2} + 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">h</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.791661em;vertical-align:-0.208331em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">h</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.791661em;vertical-align:-0.208331em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">h</span><span class="mbin mtight">−</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></li>
+</ol>
+<h4 id="271-操作">2.7.1 操作</h4>
+<h5 id="2711-插入">2.7.1.1 插入</h5>
+<p>插入后，计算各结点的BF值，将不平衡的结点标记为“发现者”，插入的结点为“麻烦结点”，据此有以下四种情况：</p>
+<ol>
+<li>麻烦结点在发现者的右子树的右边，称之为RR插入，需要RR旋转（右单旋）<br>
+<img src="https://blackfish-wu.github.io//post-images/1570345071314.png" alt="" loading="lazy"></li>
+<li>麻烦结点在发现者的左子树的左边，称之为LL插入，需要LL旋转（左单旋）<br>
+<img src="https://blackfish-wu.github.io//post-images/1570345136195.png" alt="" loading="lazy"></li>
+<li>麻烦结点在发现者的左子树的右边，称之为LR插入，需要LR旋转（左右双旋）<br>
+<img src="https://blackfish-wu.github.io//post-images/1570345262711.png" alt="" loading="lazy"></li>
+<li>麻烦结点在发现者的右子树的左边，称之为RL插入，需要RL旋转（右左双旋）<br>
+<img src="https://blackfish-wu.github.io//post-images/1570345270024.png" alt="" loading="lazy"></li>
+</ol>
+<h3 id="28-堆">2.8 堆</h3>
+<h4 id="281-定义">2.8.1 定义</h4>
+<p>结构性：用数组表示的完全二叉树<br>
+有序性：任一结点的关键字是其子树所有结点的最大值（或最小值）</p>
+<h4 id="282-操作">2.8.2 操作</h4>
+<ol>
+<li>创建</li>
+</ol>
+<pre><code class="language-C">typedef struct HeapStruct *MaxHeap;
+struct HeapStruct{
+    ElementType *Elements;    /* 存储堆元素的数组 */
+    int Size;                 /* 堆当前元素的个数 */
+    int Capacity;             /* 堆的最大容量 */
+};
+
+MaxHeap Create(int MaxSize){
+    MaxHeap H = malloc(sizeof(struct HeapStruct));
+    H-&gt;Elements = malloc((MaxSize+1)*sizeof(struct ElementType));
+    H-&gt;Size = 0;
+    H-&gt;Capacity = MaxSize;
+    H-&gt;Elements[0] = MaxData;  /* 定义哨兵为大于堆中所有可能元素的值，以便于以后更快操作 */
+
+    return H;
+}
+</code></pre>
+<ol start="2">
+<li>插入</li>
+</ol>
+<pre><code class="language-C">void Insert(MaxHeap H, ElementType item){
+    int i;
+    if(IsFull(H)){
+        printf(&quot;最大堆已满&quot;);
+        return ;
+    }
+    i = ++H-&gt;Size;
+    for(;H-&gt;Elements[i/2]&lt;item;i/=2)
+        H-&gt;Elements[i] = H-&gt;Elements[i/2]
+    H-&gt;Elements[i] = item;
+}
+</code></pre>
+<ol start="3">
+<li>删除最大结点</li>
+</ol>
+<pre><code class="language-C">void DeleteMax(MaxHeap H){
+    ElementType MaxItem, temp;
+    int Parent, Child;
+    if(IsEmpty(H)){
+        printf(&quot;最大堆为空&quot;);
+        return ;
+    }
+    MaxItem = H-&gt;Elements[1];
+    temp = H-&gt;Elements[H-&gt;Size--];
+    
+    for(Parent=1;Parent*2&lt;=H-&gt;Size;Parent=Child){  
+    /* Parent*2&lt;=H-&gt;Size 可判断Parent有没有左儿子 */
+    /* 在完全二叉树中，编号为i结点的左右儿子编号分别为2i和2i+1 */
+        Child = Parent/2;
+        /* Child!=H-&gt;Size即Child小于H-&gt;Size，Child+1不越界且至多等于H-&gt;Size */
+        if((Child!=H-&gt;Size)&amp;&amp;(H-&gt;Elements[Child]&lt;H-&gt;Elements[Child+1]))
+            Child++;
+        if(temp&gt;H-&gt;Elements[Child]) 
+            break;
+        else
+            H-&gt;Elements[Parent] = H-&gt;Elements[Child];
+    }
+    H-&gt;Elements[Parent] = temp;
+    return MaxItem;
+}
+</code></pre>
+<h3 id="29-哈夫曼树">2.9 哈夫曼树</h3>
+<h4 id="291-定义">2.9.1 定义</h4>
+<p>带权路径长度（WPL）：设二叉树有n个叶子结点，每个叶子结点带有权值<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>w</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">w_k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.02691em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，从根结点到每个叶子结点的长度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>l</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">l_k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.01968em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，则每个叶子结点的带权路径长度之和就是：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>W</mi><mi>P</mi><mi>L</mi><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><msub><mi>w</mi><mi>k</mi></msub><msub><mi>l</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">WPL=\sum_{k=1}^nw_kl_k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault">L</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.104002em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.02691em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.01968em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><br>
+最优二叉树或哈夫曼树：WPL最小的二叉树</p>
+<h4 id="292-性质">2.9.2 性质</h4>
+<ol>
+<li>没有度为1的结点；</li>
+<li>n个叶子结点的哈夫曼树共有2n-1个结点。推导：二叉树有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>n</mi><mn>0</mn></msub><mo>=</mo><msub><mi>n</mi><mn>2</mn></msub><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n_0=n_2+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>，则<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>n</mi><mn>2</mn></msub><mo>=</mo><msub><mi>n</mi><mn>0</mn></msub><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n_2=n_0-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mo>=</mo><msub><mi>n</mi><mn>0</mn></msub><mo>+</mo><msub><mi>n</mi><mn>1</mn></msub><mo>+</mo><msub><mi>n</mi><mn>2</mn></msub><mo>=</mo><mi>n</mi><mo>+</mo><mn>0</mn><mo>+</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo>=</mo><mn>2</mn><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">s=n_0+n_1+n_2=n+0+n-1=2n-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">s</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></li>
+<li>哈夫曼树的任意非叶结点的左右子树交换后仍是哈夫曼树</li>
+<li>对同一组权值，可能存在不同构的哈夫曼树</li>
+</ol>
+<h4 id="293-操作">2.9.3 操作</h4>
+<ol>
+<li>创建</li>
+</ol>
+<pre><code class="language-C">/* 时间复杂度:O(NlogN) */
+typedef struct TreeNode *HuffmanTree;
+struct TreeNode{
+    int Weight;
+    HuffmanTree Left, Right;
+}
+HuffmanTree Huffman(MinHeap H){
+    /* 假设H-&gt;Size个权值已经存在H-&gt;Elements[]-&gt;Weight里 */
+    int i;
+    HuffmanTree T;
+    BuildMinHeap(H); /* 将H-&gt;Elements[]按权值调整为最小堆 */
+    for(i=1;i&lt;H-&gt;Size;i++){  /* 做H-&gt;Size-1次合并，n个结点两两合并只需n-1次 */
+        T = malloc(sizeof(struct TreeNode)); /* 创建一个新的结点 */
+        T-&gt;Left = DeleteMin(H);             
+        T-&gt;Right = DeleteMin(H);
+        T-&gt;Weight = T-&gt;Left-&gt;Weight + T-&gt;Right-&gt;Weight;
+        Insert(H, T);   /* 将新T插入最小堆 */
+    }
+    T = DeleteMin(H);  /* 留在最小堆中的最后一个结点即为所求Huffman树的根结点 */
+    return T;
+}
+</code></pre>
+<h3 id="210-并查集">2.10 并查集</h3>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[ArcGIS10.3 发布要素服务的流程(SQLServer)]]></title>
-        <id>https://blackfish-wu.github.io//post/arcgis103-fa-bu-yao-su-fu-wu-de-liu-cheng-sqlserver</id>
-        <link href="https://blackfish-wu.github.io//post/arcgis103-fa-bu-yao-su-fu-wu-de-liu-cheng-sqlserver">
+        <id>https://blackfish-wu.github.io/post/arcgis103-fa-bu-yao-su-fu-wu-de-liu-cheng-sqlserver</id>
+        <link href="https://blackfish-wu.github.io/post/arcgis103-fa-bu-yao-su-fu-wu-de-liu-cheng-sqlserver">
         </link>
         <updated>2019-08-16T14:02:01.000Z</updated>
         <content type="html"><![CDATA[<ol>
 <li>创建企业地理数据库<br>
-<img src="https://blackfish-wu.github.io//post-images/1565964186616.png" alt=""></li>
+<img src="https://blackfish-wu.github.io//post-images/1565964186616.png" alt="" loading="lazy"></li>
 <li>创建数据库连接<br>
-<img src="https://blackfish-wu.github.io//post-images/1565964341417.png" alt=""></li>
+<img src="https://blackfish-wu.github.io//post-images/1565964341417.png" alt="" loading="lazy"></li>
 <li>将待发布为要素服务的数据导入该数据库中。<br>
-<img src="https://blackfish-wu.github.io//post-images/1565964347628.png" alt=""></li>
+<img src="https://blackfish-wu.github.io//post-images/1565964347628.png" alt="" loading="lazy"></li>
 <li>右键选择该要素，将其注册为版本化数据<br>
-<img src="https://blackfish-wu.github.io//post-images/1565964354123.png" alt=""></li>
+<img src="https://blackfish-wu.github.io//post-images/1565964354123.png" alt="" loading="lazy"></li>
 <li>创建arcgis server，账号密码为arcgis server manager登录的账号密码<br>
-<img src="https://blackfish-wu.github.io//post-images/1565964371531.png" alt=""></li>
+<img src="https://blackfish-wu.github.io//post-images/1565964371531.png" alt="" loading="lazy"></li>
 <li>打开服务属性。<br>
-<img src="https://blackfish-wu.github.io//post-images/1565964378603.png" alt=""></li>
+<img src="https://blackfish-wu.github.io//post-images/1565964378603.png" alt="" loading="lazy"></li>
 <li>为服务配置数据库连接属性。在选择“是否跟发布的数据库连接相同连接（same as pubilisher database connection）”选项时，应注意arcgis server服务登录的账号是否为本地账户（打开“运行”，输入services.msc，找到arcgis server 服务，右键属性，打开登录标签，查看是否为本地系统账户），如果是就勾选。<br>
-<img src="https://blackfish-wu.github.io//post-images/1565964387856.png" alt=""></li>
+<img src="https://blackfish-wu.github.io//post-images/1565964387856.png" alt="" loading="lazy"></li>
 <li>将放置到SDE的图层加载到ArcMap上，选择share as service，勾选要素服务进行发布。</li>
 <li>打开manager， 查看服务是否能正常开启。</li>
 </ol>
@@ -54,8 +448,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Python环境中使Arcpy]]></title>
-        <id>https://blackfish-wu.github.io//post/python-huan-jing-zhong-shi-yong-arcpy</id>
-        <link href="https://blackfish-wu.github.io//post/python-huan-jing-zhong-shi-yong-arcpy">
+        <id>https://blackfish-wu.github.io/post/python-huan-jing-zhong-shi-yong-arcpy</id>
+        <link href="https://blackfish-wu.github.io/post/python-huan-jing-zhong-shi-yong-arcpy">
         </link>
         <updated>2019-08-16T09:33:00.000Z</updated>
         <content type="html"><![CDATA[<h4 id="手动添加依赖">手动添加依赖</h4>
@@ -85,8 +479,8 @@ C:\Python27\ArcGIS10.5\Lib
     </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://blackfish-wu.github.io//post/hello-gridea</id>
-        <link href="https://blackfish-wu.github.io//post/hello-gridea">
+        <id>https://blackfish-wu.github.io/post/hello-gridea</id>
+        <link href="https://blackfish-wu.github.io/post/hello-gridea">
         </link>
         <updated>2018-12-11T16:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
