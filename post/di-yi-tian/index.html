@@ -1,0 +1,328 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TCP/IP 协议——概述 | 黑鱼的池塘</title>
+<meta name="description" content="温故而知新" />
+<link rel="shortcut icon" href="https://blackfish-wu.github.io//favicon.ico?v=1584619024376">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://blackfish-wu.github.io//styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://blackfish-wu.github.io/">
+  <img class="avatar" src="https://blackfish-wu.github.io//images/avatar.png?v=1584619024376" alt="">
+  </a>
+  <h1 class="site-title">
+    黑鱼的池塘
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              TCP/IP 协议——概述
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-03-18
+              </span>
+              <span>
+                8 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h3 id="1-分层">1 分层</h3>
+<h4 id="11-概述">1.1 概述</h4>
+<p>TCP/IP通常被认为是一个四层协议系统</p>
+<ol>
+<li>应用层负责处理特定的应用程序细节。通用的应用程序：Telnet 远程登录；FTP文件传输协议；SMTP简单邮件传送协议；SNMP 简单网络管理协议。</li>
+<li>运输层，主要为两台主机上的应用程序提供<strong>端到端</strong>的通信。在TCP/IP协议族中，有两个互不相同的传输协议：TCP（传输控制协议）和UDP（用户数据报协议）。TCP为两台主机提供高可靠性的数据通信。它所做的工作包括把应用程序交给它的数据分成合适的小块交给下面的网络层，确认接收到的分组，设置发送最后确认分组的超时时钟等。由于运输层提供了高可靠性的端到端的通信，因此应用层可以忽略所有这些细节。而另一方面， UDP则为应用层提供一种非常简单的服务。它只是把称作数据报的分组从一台主机发送到另一台主机，但并不保证该数据报能到达另一端。任何必需的可靠性必须由应用层来提供。</li>
+<li>网络层，有时也称作互联网层，提供<strong>点到点</strong>的服务，处理分组在网络中的活动，例如分组的选路。在TCP/IP协议族中，网络层协议包括IP协议（网际协议），ICMP协议（Internet互联网控制报文协议），以及IGMP协（Internet组管理协议）。</li>
+<li>链路层，有时也称作数据链路层或网络接口层，通常包括操作系统中的设备驱动程序和计算机中对应的网络接口卡。它们一起处理与电缆（或其他任何传输媒介）的物理接口细节。<br>
+<img src="https://blackfish-wu.github.io//post-images/1584584791065.png" alt="" loading="lazy"></li>
+</ol>
+<h4 id="12-分层协议">1.2  分层协议</h4>
+<figure data-type="image" tabindex="1"><img src="https://blackfish-wu.github.io//post-images/1584584901048.png" alt="" loading="lazy"></figure>
+<ul>
+<li>运输层
+<ul>
+<li>TCP（传输控制协议）：TCP使用不可靠的IP服务，但它却提供一种可靠的运输层服务。</li>
+<li>UDP（用户数据协议）：UDP是不可靠的，能为应用程序发送和接收数据报。一个数据报是指从发送方传输到接收方的一个信息单元。</li>
+</ul>
+</li>
+<li>网络层
+<ul>
+<li>IP是网络层上的主要协议，同时被TCP和UDP使用。TCP和UDP的每组数据都通过端系统和每个中间路由器中的IP层在互联网中进行传输。</li>
+<li>ICMP是IP协议的附属协议。IP层用它来与其他主机或路由器交换错误报文和其他重要信息。</li>
+<li>IGMP是Internet组管理协议。它用来把一个UDP数据报多播到多个主机。</li>
+</ul>
+</li>
+<li>链路层
+<ul>
+<li>ARP（地址解析协议）和RARP（逆地址解析协议）是某些网络接口（如以太网和令牌环<br>
+网）使用的特殊协议，用来转换IP层和网络接口层使用的地址。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-互联网地址和域名系统">2 互联网地址和域名系统</h3>
+<h4 id="21-互联网地址">2.1 互联网地址</h4>
+<figure data-type="image" tabindex="2"><img src="https://blackfish-wu.github.io//post-images/1584588205455.png" alt="五类互联网地址" loading="lazy"></figure>
+<ul>
+<li>长度为32bit，通常写成四个十进制的数，每个数为1个字节，范围从0-255</li>
+<li>区分各类地址的最简单方法是看它的第一个十进制整数，下图列出了各类地址的起止范围。<br>
+<img src="https://blackfish-wu.github.io//post-images/1584602058553.png" alt="各类IP地址的范围" loading="lazy"></li>
+<li>多接口主机具有多个IP地址，其中每个接口都对应一个IP地址。</li>
+<li>互联网上的每个接口必须有一个唯一的IP地址 为接入互联网的网络分配IP地址的机构叫互联网信息中心，称为InterNIC。InterNIC只分配网络号。主机号的分配由系统管理员来负责。</li>
+<li>有三类IP地址：单播地址（目的为单个主机）、广播地址（目的端为给定网络上的所有主机）以及多播地址（目的端为同一组内的所有主机）</li>
+</ul>
+<h4 id="22-域名系统">2.2 域名系统</h4>
+<ul>
+<li>尽管通过IP地址可以识别主机上的网络接口，进而访问主机，但是人们最喜欢使用的还<br>
+是主机名。在TCP/IP领域中，域名系统（DNS）是一个分布的数据库，由它来提供IP地址和<br>
+主机名之间的映射信息。</li>
+</ul>
+<h3 id="3-封装和分用">3 封装和分用</h3>
+<h4 id="31-封装">3.1 封装</h4>
+<ul>
+<li>当应用程序用TCP传送数据时，数据被送入协议栈中，然后逐个通过每一层直到被当作一串比特流送入网络。其中每一层对收到的数据都要增加一些首部信息（有时还要增加尾部信息）</li>
+<li>TCP传给IP的数据单元称作TCP报文段或简称为TCP段</li>
+<li>IP传给网络接口层的数据单元称作IP数据报</li>
+<li>通过以太网传输的比特流称作帧(Frame)<br>
+<img src="https://blackfish-wu.github.io//post-images/1584602596706.png" alt="" loading="lazy"></li>
+<li>UDP数据与TCP数据基本一致。唯一的不同是UDP传给IP的信息单元称作UDP数据报（UDP datagram），而且UDP的首部长为8字节。</li>
+</ul>
+<h4 id="32-分用">3.2 分用</h4>
+<ul>
+<li>当目的主机收到一个以太网数据帧时，数据就开始从协议栈中由底向上升，同时去掉各层协议加上的报文首部。每层协议盒都要去检查报文首部中的协议标识，以确定接收数据的上层协议。这个过程称作分用（ Demultiplexing）<br>
+<img src="https://blackfish-wu.github.io//post-images/1584603217689.png" alt="以太网数据帧的分用过程" loading="lazy"></li>
+</ul>
+<h3 id="4-客户-服务器模型">4 客户-服务器模型</h3>
+<ul>
+<li>大部分网络应用程序在编写时都假设一端是客户，另一端是服务器，其目的是为了让服<br>
+务器为客户提供一些特定的服务。可以将这种服务分为两种类型：重复型或并发型。</li>
+<li>一般来说， TCP服务器是并发的，而UDP服务器是重复的</li>
+</ul>
+<h4 id="41-重复型">4.1 重复型</h4>
+<ul>
+<li>步骤如下：
+<ol>
+<li>等待一个客户请求的到来。</li>
+<li>处理客户请求。</li>
+<li>发送响应给发送请求的客户。</li>
+<li>返回第1步。</li>
+</ol>
+</li>
+<li>重复型服务器的问题主要在第2步，处理用户请求时无法为其他客户机提供服务。</li>
+</ul>
+<h4 id="42-并发型">4.2 并发型</h4>
+<ul>
+<li>步骤
+<ol>
+<li>等待一个客户请求的到来。</li>
+<li>启动一个新的服务器来处理这个客户的请求。在这期间可能生成一个新的进程、任务或线程，并依赖底层操作系统的支持。这个步骤如何进行取决于操作系统。生成的新服务器对客户的全部请求进行处理。处理结束后，终止这个新服务器。</li>
+<li>返回第1步。</li>
+</ol>
+</li>
+<li>并发服务器的优点在于它是利用生成其他服务器的方法来处理客户的请求。</li>
+</ul>
+<h3 id="5-端口号">5 端口号</h3>
+<ul>
+<li>TCP和UDP采用16 bit的端口号来识别应用程序。</li>
+<li>服务器一般都是通过知名端口号来识别的。任何TCP/IP实现所提供的服务都用知名的1～1023之间的端口号。</li>
+<li>客户端通常对它所使用的端口号并不关心，只需保证该端口号在本机上是唯一的就可以。客户端口号又称作<strong>临时端口号</strong>（即存在时间很短暂）。大多数TCP/IP实现给临时端口分配1024～5000之间的端口号。</li>
+</ul>
+<h3 id="6-标准化过程">6 标准化过程</h3>
+<h4 id="61-标准化组织">6.1 标准化组织</h4>
+<ol>
+<li>Internet协会（ISOC，Internet Society）是一个推动、支持和促进Internet不断增长和发展的专业组织，它把Internet作为全球研究通信的基础设施。</li>
+<li>Internet体系结构委员会（IAB，Internet Architecture Board）是一个技术监督和协调的机 构。它由国际上来自不同专业的15个志愿者组成，其职能是负责Internet标准的最后编辑和技术审核。IAB隶属于ISOC。</li>
+<li>Internet工程专门小组（IETF，Internet Engineering Task Force）是一个面向近期标准的组织，它分为9个领域（应用、寻径和寻址、安全等等）。IETF开发成为Internet标准的规范。为帮助IETF主席，又成立了Internet工程指导小组（IESG, Internet Engineering Steering Group）。隶属于IAB。</li>
+<li>Internet研究专门小组（IRIF，Internet Research Task Force）主要对长远的项目进行研究。隶属于IAB。</li>
+</ol>
+<h4 id="62-标准化文档">6.2 标准化文档</h4>
+<ul>
+<li>所有关于Internet的正式标准都以<strong>RFC</strong>（Request for Comment）文档出版。</li>
+<li>大量的RFC并不是正式的标准，出版的目的只是为了提供信息。</li>
+<li>RFC的篇幅从1页到200页不等。每一项都用一个数字来标识，如RFC1122，数字越大说明RFC的内容越新。</li>
+</ul>
+<h4 id="63-实现">6.3 实现</h4>
+<ul>
+<li>既成事实标准的TCP/IP软件实现来自于位于伯克利的加利福尼亚大学的计算机系统研究小组。</li>
+<li>从历史上看，软件是随同4.x BSD系统（Berkeley Software Distribution）的网络版一起发布的。</li>
+</ul>
+<h4 id="64-接口">6.4 接口</h4>
+<ul>
+<li>使用TCP/IP协议的应用程序通常采用两种应用编程接口（AP I）：socket和TLI（运输层接口：Transport Layer Interface）。</li>
+</ul>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#1-%E5%88%86%E5%B1%82">1 分层</a>
+<ul>
+<li><a href="#11-%E6%A6%82%E8%BF%B0">1.1 概述</a></li>
+<li><a href="#12-%E5%88%86%E5%B1%82%E5%8D%8F%E8%AE%AE">1.2  分层协议</a></li>
+</ul>
+</li>
+<li><a href="#2-%E4%BA%92%E8%81%94%E7%BD%91%E5%9C%B0%E5%9D%80%E5%92%8C%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9F">2 互联网地址和域名系统</a>
+<ul>
+<li><a href="#21-%E4%BA%92%E8%81%94%E7%BD%91%E5%9C%B0%E5%9D%80">2.1 互联网地址</a></li>
+<li><a href="#22-%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9F">2.2 域名系统</a></li>
+</ul>
+</li>
+<li><a href="#3-%E5%B0%81%E8%A3%85%E5%92%8C%E5%88%86%E7%94%A8">3 封装和分用</a>
+<ul>
+<li><a href="#31-%E5%B0%81%E8%A3%85">3.1 封装</a></li>
+<li><a href="#32-%E5%88%86%E7%94%A8">3.2 分用</a></li>
+</ul>
+</li>
+<li><a href="#4-%E5%AE%A2%E6%88%B7-%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A8%A1%E5%9E%8B">4 客户-服务器模型</a>
+<ul>
+<li><a href="#41-%E9%87%8D%E5%A4%8D%E5%9E%8B">4.1 重复型</a></li>
+<li><a href="#42-%E5%B9%B6%E5%8F%91%E5%9E%8B">4.2 并发型</a></li>
+</ul>
+</li>
+<li><a href="#5-%E7%AB%AF%E5%8F%A3%E5%8F%B7">5 端口号</a></li>
+<li><a href="#6-%E6%A0%87%E5%87%86%E5%8C%96%E8%BF%87%E7%A8%8B">6 标准化过程</a>
+<ul>
+<li><a href="#61-%E6%A0%87%E5%87%86%E5%8C%96%E7%BB%84%E7%BB%87">6.1 标准化组织</a></li>
+<li><a href="#62-%E6%A0%87%E5%87%86%E5%8C%96%E6%96%87%E6%A1%A3">6.2 标准化文档</a></li>
+<li><a href="#63-%E5%AE%9E%E7%8E%B0">6.3 实现</a></li>
+<li><a href="#64-%E6%8E%A5%E5%8F%A3">6.4 接口</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://blackfish-wu.github.io/post/shu-ju-jie-gou-tu">
+              <h3 class="post-title">
+                数据结构——图
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
+  <a class="rss" href="https://blackfish-wu.github.io//atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+
+  let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+  // This should probably be throttled.
+  // Especially because it triggers during smooth scrolling.
+  // https://lodash.com/docs/4.17.10#throttle
+  // You could do like...
+  // window.addEventListener("scroll", () => {
+  //    _.throttle(doThatStuff, 100);
+  // });
+  // Only not doing it here to keep this Pen dependency-free.
+
+  window.addEventListener("scroll", event => {
+    let fromTop = window.scrollY;
+
+    mainNavLinks.forEach((link, index) => {
+      let section = document.getElementById(decodeURI(link.hash).substring(1));
+      let nextSection = null
+      if (mainNavLinks[index + 1]) {
+        nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+      }
+      console.log('section.offsetHeight', section.offsetHeight);
+      if (section.offsetTop <= fromTop) {
+        if (nextSection) {
+          if (nextSection.offsetTop > fromTop) {
+            link.classList.add("current");
+          } else {
+            link.classList.remove("current");    
+          }
+        } else {
+          link.classList.add("current");
+        }
+      } else {
+        link.classList.remove("current");
+      }
+    });
+  });
+
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>
