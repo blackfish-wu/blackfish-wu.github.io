@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TCP/IP 协议——IP：网际协议 | 黑鱼的池塘</title>
 <meta name="description" content="温故而知新" />
-<link rel="shortcut icon" href="https://blackfish-wu.github.io//favicon.ico?v=1584714149993">
+<link rel="shortcut icon" href="https://blackfish-wu.github.io//favicon.ico?v=1584714683427">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://blackfish-wu.github.io//styles/main.css">
@@ -20,7 +20,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://blackfish-wu.github.io/">
-  <img class="avatar" src="https://blackfish-wu.github.io//images/avatar.png?v=1584714149993" alt="">
+  <img class="avatar" src="https://blackfish-wu.github.io//images/avatar.png?v=1584714683427" alt="">
   </a>
   <h1 class="site-title">
     黑鱼的池塘
@@ -109,7 +109,7 @@
 <li>协议版本号，ipv4时值为4，ipv6值为6</li>
 <li>首部长度，是指IP首部所占的字节数除以4的数量（单位：32bit），取值为5-15，即最少20字节，最大60字节。</li>
 <li>服务类型，长度为8 bit，其中3 bit为优先权子字段（现在已被忽略），4 bit的TOS子字段和1 bit未用位但必须置0。其中，TOS子字段分别表示最小时延、最大吞吐量、最高可靠性和最小费用。TOS子字段只能将其中一个置为1，当都为0时意味着是一般服务。RFC 1349更详细地描述了TOS的特征。</li>
-<li>总长度是指整个IP数据报的长度，以字节为单位。</li>
+<li>总长度是指整个IP数据报的长度，以字节为单位。由于该字段长16比特，所以IP数据报最大可达65535字节。</li>
 </ol>
 </li>
 </ul>
