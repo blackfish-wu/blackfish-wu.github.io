@@ -1,0 +1,297 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TCP/IP 协议——链路层 | 黑鱼的池塘</title>
+<meta name="description" content="温故而知新" />
+<link rel="shortcut icon" href="https://blackfish-wu.github.io//favicon.ico?v=1584705278162">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://blackfish-wu.github.io//styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://blackfish-wu.github.io/">
+  <img class="avatar" src="https://blackfish-wu.github.io//images/avatar.png?v=1584705278162" alt="">
+  </a>
+  <h1 class="site-title">
+    黑鱼的池塘
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              TCP/IP 协议——链路层
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-03-19
+              </span>
+              <span>
+                7 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h3 id="1-引言">1 引言</h3>
+<ul>
+<li>在TCP/IP协议族中，链路层主要有三个目的：
+<ol>
+<li>为IP模块发送和接收IP数据报；</li>
+<li>为ARP模块发送ARP请求和接收ARP应答；</li>
+<li>为RARP发送RARP请求和接收RARP应答</li>
+</ol>
+</li>
+</ul>
+<h3 id="2-以太网和ieee-802封装">2 以太网和IEEE 802封装</h3>
+<h4 id="21-以太网">2.1 以太网</h4>
+<ul>
+<li>以太网是当今TCP/IP采用的主要的局域网技术，采用带冲突检测的载波侦听多路接入方法（CSMA/CD）</li>
+<li>速率为10Mb/s，地址为48bit。</li>
+<li>数据报封装在RFC 894中定义。</li>
+<li>封装格式中，目标地址和源地址之后为2字节的“类型”字段，该字段定义了后续数据的类型。</li>
+<li>类型字段之后就是数据，最少要有46字节，在不足的空间必须插入填充（pad）字节。</li>
+<li>最后有4字节的CRC检验码，用于帧内后续字节差错的循环冗余码检验。</li>
+</ul>
+<h4 id="22-ieee-802">2.2 IEEE 802</h4>
+<ul>
+<li>IEEE 802是对IEEE公布的的标准集，其中802.3针对整个CSMA/CD网络，802.4针对令牌总线网络，802.5针对令牌环网路。</li>
+<li>802.3允许使用16bit的地址，但一般是48bit。</li>
+<li>数据报封装在RFC 1042中定义。</li>
+<li>封装格式中，目标地址和源地址之后为2字节的“长度”字段，该字段指它后续数据的字节长度，但不包括CRC检验码。“类型”字段则由后续的子网接入协议（Sub-network Access Protocol, SNAP）的首部给出。802定义的有效长度值与以太网的有效类型值均不相同，通过该值可以区分两种帧格式。</li>
+<li>长度字段之后是3字节的802.2 LLC和5字节的802.2 SNAP。其中，LLC包含目的服务访问点（DSAP）、源服务访问点和Ctrl字段，均为一个字节。SNAP包含3字节的org code和两个字节的“类型“字段。</li>
+<li>数据部分至少38字节，在不足的空间必须插入填充（pad）字节。</li>
+<li>最后有4字节的CRC检验码。<br>
+<img src="https://blackfish-wu.github.io//post-images/1584623667338.png" alt="802与以太网的封装格式" loading="lazy"></li>
+</ul>
+<h4 id="23-尾部封装">2.3 尾部封装</h4>
+<ul>
+<li>是一个早期B S D系统在DEC VA X机上运行时的试验格式，它通过调整I P数据报中字段的次序来提高性能。</li>
+<li>数据报封装在RFC 893中定义。</li>
+<li>尾部封装已遭到反对。</li>
+</ul>
+<h4 id="24-以太网主机需求">2.4 以太网主机需求</h4>
+<ol>
+<li>必须能发送和接收采用RFC 894（以太网）封装格式的分组。</li>
+<li>必须能接收与RFC 894混合的RFC 1042（IEEE 802）封装格式的分组。</li>
+<li>也许能够发送采用RFC 1042格式封装的分组。发送的分组必须是可以设置的，而且默认条件下必须是RFC 894分组。</li>
+</ol>
+<h3 id="3-slip">3 SLIP</h3>
+<h4 id="31-串行线路ip介绍">3.1 串行线路IP介绍</h4>
+<ul>
+<li>SLIP的全称是Serial Line IP，是一种广泛使用在串行线路上的协议，对IP数据报以简单形式进行封装。</li>
+<li>数据报封装在RFC 1055中定义。</li>
+<li>封装格式：
+<ol>
+<li>IP数据报以一个称作END（0xc0）的特殊字符开始和结束。</li>
+<li>如果IP报文中某个字符为END，那么就要连续传输两个字节0xdb和0xdc来取代它。0xdb这个特殊字符被称作SLIP的ESC字符。</li>
+<li>如果IP报文中某个字符为SLIP的ESC字符，那么就要连续传输两个字节0xdb和0xdd来取代它。<br>
+<img src="https://blackfish-wu.github.io//post-images/1584624111155.png" alt="SLIP报文的封装" loading="lazy"></li>
+</ol>
+</li>
+<li>缺陷：
+<ol>
+<li>每一端必须知道对方的IP地址。没有办法把本端的IP地址通知给另一端。</li>
+<li>数据帧中没有类型字段（类似于以太网中的类型字段）。如果一条串行线路用于SLIP，那么它不能同时使用其他协议。</li>
+<li>SLIP没有在数据帧中加上检验和。如果报文被线路噪声影响而发生错误，只能通过上层协议来发现。因此上层协议提供某种形式的CRC就显得很重要。</li>
+</ol>
+</li>
+</ul>
+<h4 id="32-压缩的slip">3.2 压缩的SLIP</h4>
+<ul>
+<li>由于串行线路的速率通常较低（ 19200 b/s或更低），而且通信经常是交互式的（如Telnet和Rlogin，二者都使用TCP），因此在SLIP线路上有许多小的TCP分组进行交换。为了传送1个字节的数据需要20个字节的IP首部和2 0个字节的TCP首部，总数超过40个字节。CSLIP（即压缩SLIP）的新协议就是为了解决SLIP性能上的缺陷。</li>
+<li>在RFC 1144中被详细描述</li>
+<li>CSLIP一般能把上面的40个字节压缩到3或5个字节。</li>
+<li>现在大多数的SLIP产品都支持CSLIP。</li>
+</ul>
+<h3 id="4-ppp点对点协议">4 PPP：点对点协议</h3>
+<h4 id="41-协议内容">4.1 协议内容</h4>
+<p>RFC 1548描述了报文封装的方法和链路控制协议。RFC 1332描述了针对IP的网络控制协议。</p>
+<ol>
+<li>在串行链路上封装I P数据报的方法。P P P既支持数据为8位和无奇偶检验的异步模式（如大多数计算机上都普遍存在的串行接口），还支持面向比特的同步链接。</li>
+<li>建立、配置及测试数据链路的链路控制协议（ LCP：Link Control Protocol）。它允许通信双方进行协商，以确定不同的选项。</li>
+<li>针对不同网络层协议的网络控制协议（ NCP：Network Control Protocol）体系。当前RFC定义的网络层有IP、OSI网络层、DECnet以及AppleTalk。</li>
+</ol>
+<h4 id="42-数据帧格式">4.2 数据帧格式</h4>
+<figure data-type="image" tabindex="1"><img src="https://blackfish-wu.github.io//post-images/1584628171306.png" alt="PPP数据帧的格式" loading="lazy"></figure>
+<ul>
+<li>每一帧都以标志字符0x7e开始和结束。紧接着是一个地址字节，值始终是0xff，然后是一个值为0x03的控制字节。</li>
+<li>接下来是协议字段，类似于以太网中类型字段的功能。当它的值为0x0021时，表示信息字段是一个IP数据报；值为0xc021时，表示信息字段是链路控制数据；值为0x8021时，表示信息字段是网络控制数据。</li>
+<li>CRC字段（或FCS，帧检验序列）是一个循环冗余检验码，以检测数据帧中的错误。</li>
+<li>转义：当遇到字符0x7e时，需连续传送两个字符： 0x7d和0x5e，以实现标志字符的转义。当遇到转义字符0x7d时，需连续传送两个字符： 0x7d和0x5d，以实现转义字符的转义。默认情况下，如果字符的值小于0x20，也需要转义以规避对控制字符的特殊转义。</li>
+</ul>
+<h4 id="43-优点">4.3 优点</h4>
+<ul>
+<li>PPP支持在单根串行线路上运行多种协议，不只是IP协议；</li>
+<li>每一帧都有循环冗余检验；</li>
+<li>通信双方可以进行IP地址的动态协商(使用IP网络控制协议)；</li>
+<li>与CSLIP类似，对TCP和IP报文首部进行压缩；</li>
+<li>链路控制协议可以对多个数据链路选项进行设置。</li>
+</ul>
+<h3 id="5-环回接口">5 环回接口</h3>
+<ul>
+<li>大多数的产品都支持环回接口（ Loopback Interface），以允许运行在同一台主机上的客户程序和服务器程序通过TCP/IP进行通信。</li>
+<li>A类网络号127就是为环回接口预留的。</li>
+<li>一个传给环回接口的IP数据报不能在任何网络上出现。<br>
+<img src="https://blackfish-wu.github.io//post-images/1584630544592.png" alt="环回接口处理IP数据报的过程" loading="lazy"></li>
+</ul>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#1-%E5%BC%95%E8%A8%80">1 引言</a></li>
+<li><a href="#2-%E4%BB%A5%E5%A4%AA%E7%BD%91%E5%92%8Cieee-802%E5%B0%81%E8%A3%85">2 以太网和IEEE 802封装</a>
+<ul>
+<li><a href="#21-%E4%BB%A5%E5%A4%AA%E7%BD%91">2.1 以太网</a></li>
+<li><a href="#22-ieee-802">2.2 IEEE 802</a></li>
+<li><a href="#23-%E5%B0%BE%E9%83%A8%E5%B0%81%E8%A3%85">2.3 尾部封装</a></li>
+<li><a href="#24-%E4%BB%A5%E5%A4%AA%E7%BD%91%E4%B8%BB%E6%9C%BA%E9%9C%80%E6%B1%82">2.4 以太网主机需求</a></li>
+</ul>
+</li>
+<li><a href="#3-slip">3 SLIP</a>
+<ul>
+<li><a href="#31-%E4%B8%B2%E8%A1%8C%E7%BA%BF%E8%B7%AFip%E4%BB%8B%E7%BB%8D">3.1 串行线路IP介绍</a></li>
+<li><a href="#32-%E5%8E%8B%E7%BC%A9%E7%9A%84slip">3.2 压缩的SLIP</a></li>
+</ul>
+</li>
+<li><a href="#4-ppp%E7%82%B9%E5%AF%B9%E7%82%B9%E5%8D%8F%E8%AE%AE">4 PPP：点对点协议</a>
+<ul>
+<li><a href="#41-%E5%8D%8F%E8%AE%AE%E5%86%85%E5%AE%B9">4.1 协议内容</a></li>
+<li><a href="#42-%E6%95%B0%E6%8D%AE%E5%B8%A7%E6%A0%BC%E5%BC%8F">4.2 数据帧格式</a></li>
+<li><a href="#43-%E4%BC%98%E7%82%B9">4.3 优点</a></li>
+</ul>
+</li>
+<li><a href="#5-%E7%8E%AF%E5%9B%9E%E6%8E%A5%E5%8F%A3">5 环回接口</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://blackfish-wu.github.io/post/di-yi-tian">
+              <h3 class="post-title">
+                TCP/IP 协议——概述
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
+  <a class="rss" href="https://blackfish-wu.github.io//atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+
+  let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+  // This should probably be throttled.
+  // Especially because it triggers during smooth scrolling.
+  // https://lodash.com/docs/4.17.10#throttle
+  // You could do like...
+  // window.addEventListener("scroll", () => {
+  //    _.throttle(doThatStuff, 100);
+  // });
+  // Only not doing it here to keep this Pen dependency-free.
+
+  window.addEventListener("scroll", event => {
+    let fromTop = window.scrollY;
+
+    mainNavLinks.forEach((link, index) => {
+      let section = document.getElementById(decodeURI(link.hash).substring(1));
+      let nextSection = null
+      if (mainNavLinks[index + 1]) {
+        nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+      }
+      console.log('section.offsetHeight', section.offsetHeight);
+      if (section.offsetTop <= fromTop) {
+        if (nextSection) {
+          if (nextSection.offsetTop > fromTop) {
+            link.classList.add("current");
+          } else {
+            link.classList.remove("current");    
+          }
+        } else {
+          link.classList.add("current");
+        }
+      } else {
+        link.classList.remove("current");
+      }
+    });
+  });
+
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>
