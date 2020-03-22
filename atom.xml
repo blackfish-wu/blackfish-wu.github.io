@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blackfish-wu.github.io/</id>
     <title>黑鱼的池塘</title>
-    <updated>2020-03-21T15:32:16.179Z</updated>
+    <updated>2020-03-22T03:56:24.922Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blackfish-wu.github.io/"/>
     <link rel="self" href="https://blackfish-wu.github.io/atom.xml"/>
@@ -121,7 +121,7 @@
 </ul>
 <h4 id="23-尾部封装">2.3 尾部封装</h4>
 <ul>
-<li>是一个早期B S D系统在DEC VA X机上运行时的试验格式，它通过调整I P数据报中字段的次序来提高性能。</li>
+<li>是一个早期BSD系统在DEC VA X机上运行时的试验格式，它通过调整IP数据报中字段的次序来提高性能。</li>
 <li>数据报封装在RFC 893中定义。</li>
 <li>尾部封装已遭到反对。</li>
 </ul>
@@ -163,7 +163,7 @@
 <h4 id="41-协议内容">4.1 协议内容</h4>
 <p>RFC 1548描述了报文封装的方法和链路控制协议。RFC 1332描述了针对IP的网络控制协议。</p>
 <ol>
-<li>在串行链路上封装I P数据报的方法。P P P既支持数据为8位和无奇偶检验的异步模式（如大多数计算机上都普遍存在的串行接口），还支持面向比特的同步链接。</li>
+<li>在串行链路上封装IP数据报的方法。PPP既支持数据为8位和无奇偶检验的异步模式（如大多数计算机上都普遍存在的串行接口），还支持面向比特的同步链接。</li>
 <li>建立、配置及测试数据链路的链路控制协议（ LCP：Link Control Protocol）。它允许通信双方进行协商，以确定不同的选项。</li>
 <li>针对不同网络层协议的网络控制协议（ NCP：Network Control Protocol）体系。当前RFC定义的网络层有IP、OSI网络层、DECnet以及AppleTalk。</li>
 </ol>
