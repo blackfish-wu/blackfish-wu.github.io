@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TCP/IP 协议——IP：网际协议 | 黑鱼的池塘</title>
 <meta name="description" content="温故而知新" />
-<link rel="shortcut icon" href="https://blackfish-wu.github.io//favicon.ico?v=1584967080632">
+<link rel="shortcut icon" href="https://blackfish-wu.github.io//favicon.ico?v=1585187947356">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://blackfish-wu.github.io//styles/main.css">
@@ -20,7 +20,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://blackfish-wu.github.io/">
-  <img class="avatar" src="https://blackfish-wu.github.io//images/avatar.png?v=1584967080632" alt="">
+  <img class="avatar" src="https://blackfish-wu.github.io//images/avatar.png?v=1585187947356" alt="">
   </a>
   <h1 class="site-title">
     黑鱼的池塘
@@ -137,7 +137,7 @@
 <h3 id="4-子网寻址和子网掩码">4 子网寻址和子网掩码</h3>
 <h4 id="41-子网寻址">4.1 子网寻址</h4>
 <ul>
-<li>子网，是指从大网络细分的子网络。因为A类和B类地址为主机号分配了太多的空间，可分别容纳的主机数为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>2</mn></msup><mn>4</mn><mo>−</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2^24-2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.897438em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord">4</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>1</mn></msup><mn>6</mn><mo>−</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2^16-2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.897438em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span></span></span></span></span><span class="mord">6</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>（全1和全0的主机地址无效）。在InterNIC获得某类I P网络号后，就由当地的系统管理员来进行分配，由他（或她）来决定是否建立子网，以及分配多少比特给子网号和主机号。</li>
+<li>子网，是指从大网络细分的子网络。因为A类和B类地址为主机号分配了太多的空间，可分别容纳的主机数为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>24</mn></msup><mo>−</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2^{24}-2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.897438em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mtight">4</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>16</mn></msup><mo>−</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2^{16}-2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.897438em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">6</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>（全1和全0的主机地址无效）。在InterNIC获得某类I P网络号后，就由当地的系统管理员来进行分配，由他（或她）来决定是否建立子网，以及分配多少比特给子网号和主机号。</li>
 <li>大多数的子网例子都是B类地址。其实，子网还可用于C类地址，只是它可用的比特数较少而已。大多数A类地址都是进行子网划分的。</li>
 </ul>
 <h3 id="42-子网掩码">4.2 子网掩码</h3>
@@ -145,7 +145,7 @@
 <li>子网掩码用来指明一个IP地址的哪些位标识的是主机的网络号和子网号，以及哪些位标识的是主机号。</li>
 <li>子网掩码是一个32bit的值，其中值为1的比特留给网络号和子网号，为0的比特留给主机号。</li>
 <li>IP地址一般以点分十进制方法表示，但是子网掩码却经常用十六进制来表示。</li>
-<li>给定IP地址和子网掩码以后，主机就可以确定IP数据报的目的是：：(1)本子网上的主机；(2)本网络中其他子网中的主机；( 3)其他网络上的主机。</li>
+<li>给定IP地址和子网掩码以后，主机就可以确定IP数据报的目的是：(1)本子网上的主机；(2)本网络中其他子网中的主机；(3)其他网络上的主机。</li>
 <li>如果知道本机的IP地址，那么就知道它是否为A类、B类或C类地址(从IP地址的高位可以得知)，也就知道网络号和子网号之间的分界线。而根据子网掩码就可知道子网号与主机号之间的分界线。</li>
 </ul>
 <h3 id="5-特殊的ip地址">5 特殊的IP地址</h3>

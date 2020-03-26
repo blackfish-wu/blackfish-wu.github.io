@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blackfish-wu.github.io/</id>
     <title>黑鱼的池塘</title>
-    <updated>2020-03-23T12:38:03.356Z</updated>
+    <updated>2020-03-26T01:59:15.567Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blackfish-wu.github.io/"/>
     <link rel="self" href="https://blackfish-wu.github.io/atom.xml"/>
@@ -10,6 +10,64 @@
     <logo>https://blackfish-wu.github.io/images/avatar.png</logo>
     <icon>https://blackfish-wu.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 黑鱼的池塘</rights>
+    <entry>
+        <title type="html"><![CDATA[TCP/IP协议——ICMP]]></title>
+        <id>https://blackfish-wu.github.io/post/tcpip-xie-yi-icmp/</id>
+        <link href="https://blackfish-wu.github.io/post/tcpip-xie-yi-icmp/">
+        </link>
+        <updated>2020-03-23T02:37:20.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="1-引言">1 引言</h3>
+<ul>
+<li>ICMP经常被认为是IP层的一个组成部分。它传递差错报文以及其他需要注意的信息。</li>
+<li>ICMP报文通常被IP层或更高层协议（TCP或UDP）使用。</li>
+<li>ICMP报文是在IP数据报内部，在IP数据报的数据部分。<br>
+<img src="https://blackfish-wu.github.io//post-images/1584931223410.png" alt="ICMP报文" loading="lazy"></li>
+<li>ICMP的正式规范参见RFC 792</li>
+<li>ICMP的格式：
+<ul>
+<li>类型字段有15个值，以描述特定类型的ICMP报文。</li>
+<li>代码字段用于某些ICMP报文，用以进一步描述不同的条件。</li>
+<li><strong>检验和字段覆盖整个ICMP报文</strong>。使用的算法与IP首部检验和算法相同。<br>
+<img src="https://blackfish-wu.github.io//post-images/1585137316500.png" alt="" loading="lazy"></li>
+</ul>
+</li>
+<li>不能产生ICMP差错报文的情况：
+<ul>
+<li>ICMP差错报文（但是，ICMP查询报文可能会产生ICMP差错报文）。</li>
+<li>目的地址是广播地址或多播地址的IP数据报。</li>
+<li>作为链路层广播的数据报。</li>
+<li>不是IP分片的第一片。</li>
+<li>源地址不是单个主机的数据报。源地址不能为零地址、环回地址、广播地址或多播地址。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-icmp报文类型">2 ICMP报文类型</h3>
+<figure data-type="image" tabindex="1"><img src="https://blackfish-wu.github.io//post-images/1584932928023.png" alt="ICMP报文类型" loading="lazy"></figure>
+<ul>
+<li>不同类型由报文中的类型字段和代码字段来共同决定。</li>
+<li>上图中的最后两列表明ICMP报文是一份查询报文还是一份差错报文。区分的原因是有时需要对ICMP差错报文进行特殊处理，例如在对ICMP差错报文进行响应时，永远不会生成另一份ICMP差错报文。</li>
+<li>当发送一份ICMP差错报文时，报文始终包含<strong>产生ICMP差错报文的IP首部和IP数据报的前8个字节</strong>。这样，接收ICMP差错报文的模块就会把它与某个特定的协议和用户进程联系起来。
+<ul>
+<li>对于其他类型的ICMP<strong>查询</strong>报文，服务器必须响应标识符和序列号字段。另外，客户发送的选项数据必须回显，假设客户对这些信息都会感兴趣。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-ping">3 Ping</h3>
+<h4 id="31-ping程序">3.1 Ping程序</h4>
+<ul>
+<li>我们称发送回显请求的ping程序为客户，而称被ping的主机为服务器。</li>
+<li>大多数的TCP/IP实现都在内核中直接支持Ping服务器<br>
+<img src="https://blackfish-wu.github.io//post-images/1584967740554.png" alt="回显请求和回显应答报文" loading="lazy"></li>
+<li>回显请求和回显应答报文格式如上所示，Unix系统在实现ping程序时是把ICMP报文中的标识符字段置成发送进程的ID号。</li>
+<li>序列号从0开始，每发送一次新的回显请求就加1。</li>
+<li>ping程序通过在ICMP报文数据中存放发送请求的时间值来计算往返时间。当应答返回时，用当前时间减去存放在ICMP报文中的时间值，即是往返时间。</li>
+</ul>
+<h4 id="32-记录路由">3.2 记录路由</h4>
+<ul>
+<li>记录路由是一个在IP首部设定RR选项的ICMP回显请求报文，每个处理该数据报的路由器都把它的IP地址放入选项字段中。当数据报到达目的端时，IP地址清单应该复制到ICMP回显应答中，这样返回途中所经过的路由器地址也被加入清单中。</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[TCP/IP 协议——ARP]]></title>
         <id>https://blackfish-wu.github.io/post/tcpip-xie-yi-arp/</id>
@@ -97,7 +155,7 @@
 <h3 id="4-子网寻址和子网掩码">4 子网寻址和子网掩码</h3>
 <h4 id="41-子网寻址">4.1 子网寻址</h4>
 <ul>
-<li>子网，是指从大网络细分的子网络。因为A类和B类地址为主机号分配了太多的空间，可分别容纳的主机数为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>2</mn></msup><mn>4</mn><mo>−</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2^24-2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.897438em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord">4</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>1</mn></msup><mn>6</mn><mo>−</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2^16-2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.897438em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span></span></span></span></span><span class="mord">6</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>（全1和全0的主机地址无效）。在InterNIC获得某类I P网络号后，就由当地的系统管理员来进行分配，由他（或她）来决定是否建立子网，以及分配多少比特给子网号和主机号。</li>
+<li>子网，是指从大网络细分的子网络。因为A类和B类地址为主机号分配了太多的空间，可分别容纳的主机数为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>24</mn></msup><mo>−</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2^{24}-2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.897438em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mtight">4</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>16</mn></msup><mo>−</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2^{16}-2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.897438em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">6</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>（全1和全0的主机地址无效）。在InterNIC获得某类I P网络号后，就由当地的系统管理员来进行分配，由他（或她）来决定是否建立子网，以及分配多少比特给子网号和主机号。</li>
 <li>大多数的子网例子都是B类地址。其实，子网还可用于C类地址，只是它可用的比特数较少而已。大多数A类地址都是进行子网划分的。</li>
 </ul>
 <h3 id="42-子网掩码">4.2 子网掩码</h3>
@@ -105,7 +163,7 @@
 <li>子网掩码用来指明一个IP地址的哪些位标识的是主机的网络号和子网号，以及哪些位标识的是主机号。</li>
 <li>子网掩码是一个32bit的值，其中值为1的比特留给网络号和子网号，为0的比特留给主机号。</li>
 <li>IP地址一般以点分十进制方法表示，但是子网掩码却经常用十六进制来表示。</li>
-<li>给定IP地址和子网掩码以后，主机就可以确定IP数据报的目的是：：(1)本子网上的主机；(2)本网络中其他子网中的主机；( 3)其他网络上的主机。</li>
+<li>给定IP地址和子网掩码以后，主机就可以确定IP数据报的目的是：(1)本子网上的主机；(2)本网络中其他子网中的主机；(3)其他网络上的主机。</li>
 <li>如果知道本机的IP地址，那么就知道它是否为A类、B类或C类地址(从IP地址的高位可以得知)，也就知道网络号和子网号之间的分界线。而根据子网掩码就可知道子网号与主机号之间的分界线。</li>
 </ul>
 <h3 id="5-特殊的ip地址">5 特殊的IP地址</h3>
@@ -1182,37 +1240,6 @@ HuffmanTree Huffman(MinHeap H){
 <img src="https://blackfish-wu.github.io//post-images/1565964387856.png" alt="" loading="lazy"></li>
 <li>将放置到SDE的图层加载到ArcMap上，选择share as service，勾选要素服务进行发布。</li>
 <li>打开manager， 查看服务是否能正常开启。</li>
-</ol>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Python环境中使Arcpy]]></title>
-        <id>https://blackfish-wu.github.io/post/python-huan-jing-zhong-shi-yong-arcpy/</id>
-        <link href="https://blackfish-wu.github.io/post/python-huan-jing-zhong-shi-yong-arcpy/">
-        </link>
-        <updated>2019-08-16T09:33:00.000Z</updated>
-        <content type="html"><![CDATA[<h4 id="手动添加依赖">手动添加依赖</h4>
-<p>在import arcpy之前添加相关的包路径到sys.path即可，<strong>路径以本机安装ArcGIS的路径和版本为准</strong></p>
-<pre><code class="language-Python">import sys
-sys.path.append(&quot;C:\Python27\ArcGIS10.5\Lib\site-packages&quot;)
-sys.path.append(&quot;D:\Software\ArcGIS\Desktop10.5\arcpy&quot;)
-sys.path.append(&quot;D:\Software\ArcGIS\Desktop10.5\ArcToolbox\Scripts&quot;)
-sys.path.append(&quot;D:\Software\ArcGIS\Desktop10.5\bin&quot;)
-sys.path.append(&quot;C:\Python27\ArcGIS10.5\Lib&quot;)
-</code></pre>
-<h4 id="非手动方式">非手动方式</h4>
-<p>每次用到arcpy均要添加相关包有些麻烦。为了避免这种情况，可以直接在[python根目录]\Lib\site-packages下添加一个后缀为.pth的文件，使用记事本打开并添加相关路径，例如：</p>
-<pre><code># [python根目录]\Lib\site-packages\arcpy.pth
-
-C:\Python27\ArcGIS10.5\Lib\site-packages
-D:\Software\ArcGIS\Desktop10.5\arcpy
-D:\Software\ArcGIS\Desktop10.5\ArcToolbox\Scripts
-D:\Software\ArcGIS\Desktop10.5\bin
-C:\Python27\ArcGIS10.5\Lib
-</code></pre>
-<h4 id="出错原因">出错原因</h4>
-<ol>
-<li>DLL %1......：配置的Python环境和ArcGIS使用的Python不是一个C++编辑器编译的，ArcGIS使用的是2.7的32位版本</li>
 </ol>
 ]]></content>
     </entry>

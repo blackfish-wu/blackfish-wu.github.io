@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>TCP/IP 协议——ARP | 黑鱼的池塘</title>
+<title>TCP/IP协议——ICMP | 黑鱼的池塘</title>
 <meta name="description" content="温故而知新" />
 <link rel="shortcut icon" href="https://blackfish-wu.github.io//favicon.ico?v=1585187947356">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -73,51 +73,70 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              TCP/IP 协议——ARP
+              TCP/IP协议——ICMP
             </h2>
             <div class="post-info">
               <span>
-                2020-03-21
+                2020-03-23
               </span>
               <span>
                 3 min read
               </span>
-              
-                <a href="https://blackfish-wu.github.io/tag/UoVC_7ocR/" class="post-tag">
-                  # TCP/IP
-                </a>
               
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
                 <h3 id="1-引言">1 引言</h3>
-<h4 id="11-arp简介">1.1 ARP简介</h4>
 <ul>
-<li>ARP为IP地址到对应的硬件地址之间提供动态映射。</li>
-<li>点对点链路不使用ARP，在设置链路时，网络设备已获得了链路两端的IP地址，不需要ARP协议来实现IP地址和不同网络硬件地址的动态映射。</li>
-<li>地址解析协议是IPv4中必不可少的协议，但在IPv6中将不再存在地址解析协议。在IPv6中，地址解析协议的功能将由NDP（邻居发现协议，Neighbor Discovery Protocol）实现</li>
-<li>IP数据报在选择路由后发起ARP请求</li>
+<li>ICMP经常被认为是IP层的一个组成部分。它传递差错报文以及其他需要注意的信息。</li>
+<li>ICMP报文通常被IP层或更高层协议（TCP或UDP）使用。</li>
+<li>ICMP报文是在IP数据报内部，在IP数据报的数据部分。<br>
+<img src="https://blackfish-wu.github.io//post-images/1584931223410.png" alt="ICMP报文" loading="lazy"></li>
+<li>ICMP的正式规范参见RFC 792</li>
+<li>ICMP的格式：
+<ul>
+<li>类型字段有15个值，以描述特定类型的ICMP报文。</li>
+<li>代码字段用于某些ICMP报文，用以进一步描述不同的条件。</li>
+<li><strong>检验和字段覆盖整个ICMP报文</strong>。使用的算法与IP首部检验和算法相同。<br>
+<img src="https://blackfish-wu.github.io//post-images/1585137316500.png" alt="" loading="lazy"></li>
 </ul>
-<h3 id="2-arp请求过程">2 ARP请求过程</h3>
-<h4 id="21-过程">2.1 过程</h4>
-<ol>
-<li>IP数据报在发送时会进行路由选择，得到下一站路由器的IP地址。</li>
-<li>根据路由IP地址，先前往ARP高速缓存中查找，如果存在，则该数据报开始传送。否则ARP会发送一份称作ARP请求的以太网数据帧给以太网上的每个主机。这个过程称作广播。</li>
-<li>目的主机的ARP层收到这份广播报文后，识别出这是发送端在寻问它的IP地址，于是发送一个ARP应答。这个ARP应答包含IP地址及对应的硬件地址。</li>
-<li>收到ARP应答后，该IP数据报开始传送。</li>
-<li>如果没收到ARP应答，则以递增时序的方式进行请求，在三次请求无应答后停止。</li>
-</ol>
-<h4 id="22-arp数据帧格式">2.2 ARP数据帧格式</h4>
-<figure data-type="image" tabindex="1"><img src="https://blackfish-wu.github.io//post-images/1584854074912.png" alt="" loading="lazy"></figure>
-<ol>
-<li>以太网首部中的帧类型值为0x0806，代表该请求为ARP请求</li>
-<li>硬件类型字段表示硬件地址的类型。值为1时表示以太网地址。</li>
-<li>协议类型字段表示要映射的协议地址类型。值为0x0800即表示IP地址。</li>
-<li>硬件地址长度和协议地址长度分别指出硬件地址和协议地址的长度，以字节为单位。对于以太网上IP地址的ARP请求或应答来说，它们的值分别为6和4。</li>
-<li>操作字段指出四种操作类型，它们是ARP请求（值为1）、ARP应答（值为2）、RARP请求（值为3）和RARP应答（值为4）。</li>
-<li>接下来的四个字段是发送端的硬件地址、发送端的协议地址（IP地址）、目的端的硬件地址和目的端的协议地址。</li>
-</ol>
+</li>
+<li>不能产生ICMP差错报文的情况：
+<ul>
+<li>ICMP差错报文（但是，ICMP查询报文可能会产生ICMP差错报文）。</li>
+<li>目的地址是广播地址或多播地址的IP数据报。</li>
+<li>作为链路层广播的数据报。</li>
+<li>不是IP分片的第一片。</li>
+<li>源地址不是单个主机的数据报。源地址不能为零地址、环回地址、广播地址或多播地址。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-icmp报文类型">2 ICMP报文类型</h3>
+<figure data-type="image" tabindex="1"><img src="https://blackfish-wu.github.io//post-images/1584932928023.png" alt="ICMP报文类型" loading="lazy"></figure>
+<ul>
+<li>不同类型由报文中的类型字段和代码字段来共同决定。</li>
+<li>上图中的最后两列表明ICMP报文是一份查询报文还是一份差错报文。区分的原因是有时需要对ICMP差错报文进行特殊处理，例如在对ICMP差错报文进行响应时，永远不会生成另一份ICMP差错报文。</li>
+<li>当发送一份ICMP差错报文时，报文始终包含<strong>产生ICMP差错报文的IP首部和IP数据报的前8个字节</strong>。这样，接收ICMP差错报文的模块就会把它与某个特定的协议和用户进程联系起来。
+<ul>
+<li>对于其他类型的ICMP<strong>查询</strong>报文，服务器必须响应标识符和序列号字段。另外，客户发送的选项数据必须回显，假设客户对这些信息都会感兴趣。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-ping">3 Ping</h3>
+<h4 id="31-ping程序">3.1 Ping程序</h4>
+<ul>
+<li>我们称发送回显请求的ping程序为客户，而称被ping的主机为服务器。</li>
+<li>大多数的TCP/IP实现都在内核中直接支持Ping服务器<br>
+<img src="https://blackfish-wu.github.io//post-images/1584967740554.png" alt="回显请求和回显应答报文" loading="lazy"></li>
+<li>回显请求和回显应答报文格式如上所示，Unix系统在实现ping程序时是把ICMP报文中的标识符字段置成发送进程的ID号。</li>
+<li>序列号从0开始，每发送一次新的回显请求就加1。</li>
+<li>ping程序通过在ICMP报文数据中存放发送请求的时间值来计算往返时间。当应答返回时，用当前时间减去存放在ICMP报文中的时间值，即是往返时间。</li>
+</ul>
+<h4 id="32-记录路由">3.2 记录路由</h4>
+<ul>
+<li>记录路由是一个在IP首部设定RR选项的ICMP回显请求报文，每个处理该数据报的路由器都把它的IP地址放入选项字段中。当数据报到达目的端时，IP地址清单应该复制到ICMP回显应答中，这样返回途中所经过的路由器地址也被加入清单中。</li>
+</ul>
 
               </div>
               <div class="toc-container">
@@ -126,15 +145,12 @@
 <ul>
 <li>
 <ul>
-<li><a href="#1-%E5%BC%95%E8%A8%80">1 引言</a>
+<li><a href="#1-%E5%BC%95%E8%A8%80">1 引言</a></li>
+<li><a href="#2-icmp%E6%8A%A5%E6%96%87%E7%B1%BB%E5%9E%8B">2 ICMP报文类型</a></li>
+<li><a href="#3-ping">3 Ping</a>
 <ul>
-<li><a href="#11-arp%E7%AE%80%E4%BB%8B">1.1 ARP简介</a></li>
-</ul>
-</li>
-<li><a href="#2-arp%E8%AF%B7%E6%B1%82%E8%BF%87%E7%A8%8B">2 ARP请求过程</a>
-<ul>
-<li><a href="#21-%E8%BF%87%E7%A8%8B">2.1 过程</a></li>
-<li><a href="#22-arp%E6%95%B0%E6%8D%AE%E5%B8%A7%E6%A0%BC%E5%BC%8F">2.2 ARP数据帧格式</a></li>
+<li><a href="#31-ping%E7%A8%8B%E5%BA%8F">3.1 Ping程序</a></li>
+<li><a href="#32-%E8%AE%B0%E5%BD%95%E8%B7%AF%E7%94%B1">3.2 记录路由</a></li>
 </ul>
 </li>
 </ul>
@@ -151,9 +167,9 @@
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://blackfish-wu.github.io/post/tcpip-xie-yi-ipwang-ji-xie-yi/">
+            <a href="https://blackfish-wu.github.io/post/tcpip-xie-yi-arp/">
               <h3 class="post-title">
-                TCP/IP 协议——IP：网际协议
+                TCP/IP 协议——ARP
               </h3>
             </a>
           </div>
