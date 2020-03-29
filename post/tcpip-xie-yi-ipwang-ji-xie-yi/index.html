@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TCP/IP 协议——IP：网际协议 | 黑鱼的池塘</title>
 <meta name="description" content="温故而知新" />
-<link rel="shortcut icon" href="https://blackfish-wu.github.io//favicon.ico?v=1585187947356">
+<link rel="shortcut icon" href="https://blackfish-wu.github.io//favicon.ico?v=1585497051996">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://blackfish-wu.github.io//styles/main.css">
@@ -20,7 +20,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://blackfish-wu.github.io/">
-  <img class="avatar" src="https://blackfish-wu.github.io//images/avatar.png?v=1585187947356" alt="">
+  <img class="avatar" src="https://blackfish-wu.github.io//images/avatar.png?v=1585497051996" alt="">
   </a>
   <h1 class="site-title">
     黑鱼的池塘
@@ -109,8 +109,10 @@
 <li>协议版本号，ipv4时值为4，ipv6值为6</li>
 <li>首部长度，是指IP首部所占的字节数除以4的数量（单位：32bit），取值为5-15，即最少20字节，最大60字节。</li>
 <li>服务类型，长度为8 bit，其中3 bit为优先权子字段（现在已被忽略），4 bit的TOS子字段和1 bit未用位但必须置0。其中，TOS子字段分别表示最小时延、最大吞吐量、最高可靠性和最小费用。TOS子字段只能将其中一个置为1，当都为0时意味着是一般服务。RFC 1349更详细地描述了TOS的特征。</li>
-<li>总长度，指整个IP数据报的长度，以字节为单位。由于该字段长16比特，所以IP数据报最大可达65535字节。</li>
-<li>标志字段，唯一地标识主机发送的每一份数据报，通常每发送一份报文它的值就会加1。</li>
+<li>总长度，指整个IP数据报的长度，以字节为单位。由于该字段长16比特，所以IP数据报最大可达65535字节。当数据报被分片后，每个片的总长度值要改为该片的长度值。</li>
+<li>标识字段，唯一地标识主机发送的每一份数据报，通常每发送一份报文它的值就会加1。</li>
+<li>标志字段，标志字段用其中一个比特来表示“更多的片”。除了最后一片外，其他每个组成数据报的片都要把该比特置1。标志字段中有一个比特称作“不分片”位。如果将这一比特置1，IP将不对数据报进行分片。当需要进行分片但设置了不分片比特时，把数据报丢弃并发送一个ICMP差错报文。</li>
+<li>片偏移字段，指的是该片偏移原始数据报开始处的位置。</li>
 <li>TTL字段，生存时间字段设置了数据报可以经过的最多路由器数，指定了数据报的生存时间。每经过一个处理它的主机，它的值就减去1，当该字段的值为0时，数据报就被丢弃，并发送ICMP报文通知源主机。</li>
 <li>协议字段，根据它可以识别是哪个协议向IP传送数据。，1表示为ICMP协议， 2表示为IGMP协议， 6表示为TCP协议， 17表示为UDP协议。</li>
 <li>首部检验和，检验数据报在传输过程中是否出现差错。将首部每16个bit视为一个二进制表示的数，按每1个bit进行反码求和后，将结果存放在首部校验和字段中。接收方接收后进行反码求和，结果应该全为1，否则丢弃该收到的数据报，但不生成差错报文。</li>

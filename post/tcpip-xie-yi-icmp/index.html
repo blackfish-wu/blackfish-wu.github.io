@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TCP/IP协议——ICMP | 黑鱼的池塘</title>
 <meta name="description" content="温故而知新" />
-<link rel="shortcut icon" href="https://blackfish-wu.github.io//favicon.ico?v=1585187947356">
+<link rel="shortcut icon" href="https://blackfish-wu.github.io//favicon.ico?v=1585497051996">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://blackfish-wu.github.io//styles/main.css">
@@ -20,7 +20,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://blackfish-wu.github.io/">
-  <img class="avatar" src="https://blackfish-wu.github.io//images/avatar.png?v=1585187947356" alt="">
+  <img class="avatar" src="https://blackfish-wu.github.io//images/avatar.png?v=1585497051996" alt="">
   </a>
   <h1 class="site-title">
     黑鱼的池塘
@@ -80,7 +80,7 @@
                 2020-03-23
               </span>
               <span>
-                3 min read
+                4 min read
               </span>
               
             </div>
@@ -135,7 +135,21 @@
 </ul>
 <h4 id="32-记录路由">3.2 记录路由</h4>
 <ul>
-<li>记录路由是一个在IP首部设定RR选项的ICMP回显请求报文，每个处理该数据报的路由器都把它的IP地址放入选项字段中。当数据报到达目的端时，IP地址清单应该复制到ICMP回显应答中，这样返回途中所经过的路由器地址也被加入清单中。</li>
+<li>记录路由是一个在IP首部设定RR选项的ICMP回显请求报文，每个处理该数据报的路由器都把它的IP<strong>出口</strong>地址放入选项字段中。当数据报到达目的端时，IP地址清单应该复制到ICMP回显应答中，这样返回途中所经过的路由器地址也被加入清单中。</li>
+<li>缺陷：
+<ul>
+<li>不是所有路由都支持该选项功能</li>
+<li>P首部中只有有限的空间来存放IP地址。由于IP首部固定长度为20字节， RR选项用去3个字节，这样只剩下37个字节来存放IP地址清单，也就是说只能存放9个IP地址。</li>
+</ul>
+</li>
+<li>IP数据报中的RR选项的一般格式：<br>
+<img src="https://blackfish-wu.github.io//post-images/1585214305402.png" alt="" loading="lazy">
+<ul>
+<li>code是一个字节，指明IP选项的类型。对于RR选项来说，它的值为7。</li>
+<li>len是RR选项总字节长度，在这种情况下为39（ping程序总是提供39字节的选项字段，最多可以记录9个IP地址，尽管可以为RR选项设置更小的长度）。</li>
+<li>ptr称作指针字段，指向存放下一个IP地址的位置</li>
+</ul>
+</li>
 </ul>
 
               </div>

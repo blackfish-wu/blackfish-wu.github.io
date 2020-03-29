@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blackfish-wu.github.io/</id>
     <title>黑鱼的池塘</title>
-    <updated>2020-03-26T01:59:15.567Z</updated>
+    <updated>2020-03-29T15:50:57.240Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blackfish-wu.github.io/"/>
     <link rel="self" href="https://blackfish-wu.github.io/atom.xml"/>
@@ -10,6 +10,125 @@
     <logo>https://blackfish-wu.github.io/images/avatar.png</logo>
     <icon>https://blackfish-wu.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 黑鱼的池塘</rights>
+    <entry>
+        <title type="html"><![CDATA[面试题汇总]]></title>
+        <id>https://blackfish-wu.github.io/post/mian-shi-ti-hui-zong/</id>
+        <link href="https://blackfish-wu.github.io/post/mian-shi-ti-hui-zong/">
+        </link>
+        <updated>2020-03-28T16:00:34.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="tcpip">TCP/IP</h3>
+<p>《计算机网络原理：自顶向下方法》《TCP/IP详解卷1》《图解TCP/IP》《图解HTTP》</p>
+<ol>
+<li>TCP和UDP的区别和优缺点？<br>
+<a href="https://blog.csdn.net/xiaobangkuaipao/article/details/76793702">参考</a></li>
+<li>三次握手四次挥手的过程</li>
+<li>能不能两次握手</li>
+<li>能不能三次挥手</li>
+<li>如何保证可靠性<br>
+<a href="https://blog.csdn.net/guanghuichenshao/article/details/81916277">2-5参考</a></li>
+<li>TCP/IP有几层？每一层的作用？MAC地址在哪层？</li>
+<li>有什么应用层协议</li>
+<li>IPv4、IPv6</li>
+<li>ARP协议</li>
+<li>char*和char[10]的sizeof</li>
+</ol>
+<h3 id="算法">算法</h3>
+<ol>
+<li>数组与链表的区别</li>
+<li>二分查找过程</li>
+<li>二叉树遍历方式，后序过程</li>
+<li>快排过程</li>
+<li>二叉树先序遍历和后序遍历结果相同是什么二叉树</li>
+<li>双向链表节点删除</li>
+<li>单链表给两个指针怎么检验是否有环</li>
+<li>堆排序为啥不稳定和建堆时间</li>
+</ol>
+<h3 id="java">Java</h3>
+<ol>
+<li>面向对象的设计要素</li>
+<li>Java的基本变量有哪些？类型占用字节？</li>
+<li>构造函数能被重写吗？能被重载吗？子类的super是重写吗？</li>
+<li>List和Set区别是什么？Set为什么能去重？</li>
+<li>HashMap底层原理：bucket扩容？k冲突了怎么办？</li>
+<li>Volatile用过吗？有什么作用？</li>
+<li>接口和抽象类的区别有哪些？能被实例化吗？里面变量有什么不同吗？方法有什么不同？</li>
+<li>线程的创建方式有哪几种？创建方法说下？内存模型中线程私有的有哪些？</li>
+<li>String abc = new Stirng(&quot;111&quot;)，新建了几个对象？abc指向哪？</li>
+<li>对象和类的差异</li>
+<li>全局变量和局部变量的存储位置</li>
+<li>malloc内存分配的位置</li>
+<li>strlen和sizeof</li>
+<li>引用和指针</li>
+<li>常用设计模式</li>
+<li>虚函数和接口的差异</li>
+<li>结构体内存对齐</li>
+<li>多态了解</li>
+<li>JVM类加载机制</li>
+</ol>
+<h3 id="操作系统">操作系统</h3>
+<p>《深入理解计算机系统》 《Linux内核设计与实现》《深入理解linux内核》《Linux高性能服务器编程》</p>
+<ol>
+<li>进程间通讯用什么</li>
+<li>虚拟机内存机制</li>
+<li>进程阻塞是怎么做到的</li>
+<li>多线程是什么</li>
+<li>有哪些锁分别解释一下</li>
+<li>缓存的作用以及缓存替换算法</li>
+<li>线程的实现方式</li>
+<li>虚拟文件系统</li>
+<li>进程和线程之间的区别</li>
+</ol>
+<h3 id="数据库">数据库</h3>
+<p>《数据库原理，编程与性能》《MySQL必知必会》《Redis设计与实现》</p>
+<h4 id="数据库-2">数据库</h4>
+<ol>
+<li>索引：B树、B+树底层结构，索引失效条件</li>
+<li>sql语法</li>
+<li>关系型数据库三范式</li>
+<li>存储引擎：InnoDB和MyISAM对比</li>
+<li>数据库的锁：行锁，表锁，页级锁，意向锁，读锁，写锁，悲观锁，乐观锁等等</li>
+<li>数据库隔离级别：脏读、不可重复读、幻读</li>
+<li>事务的ACID理论</li>
+<li>查询优化：explain，慢查询，show profile</li>
+<li>分布式：分库分表，读写分离</li>
+</ol>
+<h4 id="redis相关">Redis相关</h4>
+<ol>
+<li>Redis 特点</li>
+<li>Redis 底层数据结构：跳表，字典</li>
+<li>数据淘汰策略</li>
+<li>持久化方式：AOF，RDB</li>
+<li>哨兵模式</li>
+<li>集群同步方式</li>
+</ol>
+<h3 id="手撕代码">手撕代码</h3>
+<ol>
+<li>Leetcode石头碰撞问题</li>
+<li>将一整数分别转换成对应的二进制、八进制和十六进制形式</li>
+<li>将两个分数进行相加并化简成最精简的形式，输入的分数形式为&quot;a / b&quot;(除号两边有空格），a和b为正整数。<a href="https://www.nowcoder.com/discuss/391425?type=post&amp;order=time&amp;pos=&amp;page=1">题目</a></li>
+<li>给一个数组找两个数加起来等于给定数</li>
+<li>字符串最大连续子串</li>
+<li>删除相邻的重复字符。例：acccaef输出为acaef，accaef输出为ef</li>
+<li>字符串解码。例：3[a]2[c]输出为aaaccc，3[a2[c]]输出为accaccacc</li>
+<li>链表节点初始化</li>
+<li>int型数字反向输出(注意溢出问题)</li>
+<li>完整实现一个双向链表</li>
+<li>用数组实现深度为100的消息队列，入队出队函数</li>
+</ol>
+<h3 id="机考">机考</h3>
+<ol>
+<li>方阵旋转</li>
+<li>分礼物</li>
+<li>编辑距离</li>
+</ol>
+<h3 id="项目">项目</h3>
+<ol>
+<li>需求分析</li>
+<li>并发访问的处理</li>
+<li>UML有哪些模型</li>
+</ol>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[TCP/IP协议——ICMP]]></title>
         <id>https://blackfish-wu.github.io/post/tcpip-xie-yi-icmp/</id>
@@ -64,7 +183,21 @@
 </ul>
 <h4 id="32-记录路由">3.2 记录路由</h4>
 <ul>
-<li>记录路由是一个在IP首部设定RR选项的ICMP回显请求报文，每个处理该数据报的路由器都把它的IP地址放入选项字段中。当数据报到达目的端时，IP地址清单应该复制到ICMP回显应答中，这样返回途中所经过的路由器地址也被加入清单中。</li>
+<li>记录路由是一个在IP首部设定RR选项的ICMP回显请求报文，每个处理该数据报的路由器都把它的IP<strong>出口</strong>地址放入选项字段中。当数据报到达目的端时，IP地址清单应该复制到ICMP回显应答中，这样返回途中所经过的路由器地址也被加入清单中。</li>
+<li>缺陷：
+<ul>
+<li>不是所有路由都支持该选项功能</li>
+<li>P首部中只有有限的空间来存放IP地址。由于IP首部固定长度为20字节， RR选项用去3个字节，这样只剩下37个字节来存放IP地址清单，也就是说只能存放9个IP地址。</li>
+</ul>
+</li>
+<li>IP数据报中的RR选项的一般格式：<br>
+<img src="https://blackfish-wu.github.io//post-images/1585214305402.png" alt="" loading="lazy">
+<ul>
+<li>code是一个字节，指明IP选项的类型。对于RR选项来说，它的值为7。</li>
+<li>len是RR选项总字节长度，在这种情况下为39（ping程序总是提供39字节的选项字段，最多可以记录9个IP地址，尽管可以为RR选项设置更小的长度）。</li>
+<li>ptr称作指针字段，指向存放下一个IP地址的位置</li>
+</ul>
+</li>
 </ul>
 ]]></content>
     </entry>
@@ -127,8 +260,10 @@
 <li>协议版本号，ipv4时值为4，ipv6值为6</li>
 <li>首部长度，是指IP首部所占的字节数除以4的数量（单位：32bit），取值为5-15，即最少20字节，最大60字节。</li>
 <li>服务类型，长度为8 bit，其中3 bit为优先权子字段（现在已被忽略），4 bit的TOS子字段和1 bit未用位但必须置0。其中，TOS子字段分别表示最小时延、最大吞吐量、最高可靠性和最小费用。TOS子字段只能将其中一个置为1，当都为0时意味着是一般服务。RFC 1349更详细地描述了TOS的特征。</li>
-<li>总长度，指整个IP数据报的长度，以字节为单位。由于该字段长16比特，所以IP数据报最大可达65535字节。</li>
-<li>标志字段，唯一地标识主机发送的每一份数据报，通常每发送一份报文它的值就会加1。</li>
+<li>总长度，指整个IP数据报的长度，以字节为单位。由于该字段长16比特，所以IP数据报最大可达65535字节。当数据报被分片后，每个片的总长度值要改为该片的长度值。</li>
+<li>标识字段，唯一地标识主机发送的每一份数据报，通常每发送一份报文它的值就会加1。</li>
+<li>标志字段，标志字段用其中一个比特来表示“更多的片”。除了最后一片外，其他每个组成数据报的片都要把该比特置1。标志字段中有一个比特称作“不分片”位。如果将这一比特置1，IP将不对数据报进行分片。当需要进行分片但设置了不分片比特时，把数据报丢弃并发送一个ICMP差错报文。</li>
+<li>片偏移字段，指的是该片偏移原始数据报开始处的位置。</li>
 <li>TTL字段，生存时间字段设置了数据报可以经过的最多路由器数，指定了数据报的生存时间。每经过一个处理它的主机，它的值就减去1，当该字段的值为0时，数据报就被丢弃，并发送ICMP报文通知源主机。</li>
 <li>协议字段，根据它可以识别是哪个协议向IP传送数据。，1表示为ICMP协议， 2表示为IGMP协议， 6表示为TCP协议， 17表示为UDP协议。</li>
 <li>首部检验和，检验数据报在传输过程中是否出现差错。将首部每16个bit视为一个二进制表示的数，按每1个bit进行反码求和后，将结果存放在首部校验和字段中。接收方接收后进行反码求和，结果应该全为1，否则丢弃该收到的数据报，但不生成差错报文。</li>
@@ -1215,32 +1350,6 @@ HuffmanTree Huffman(MinHeap H){
 }
 </code></pre>
 <h3 id="210-并查集">2.10 并查集</h3>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[ArcGIS10.3 发布要素服务的流程(SQLServer)]]></title>
-        <id>https://blackfish-wu.github.io/post/arcgis103-fa-bu-yao-su-fu-wu-de-liu-cheng-sqlserver/</id>
-        <link href="https://blackfish-wu.github.io/post/arcgis103-fa-bu-yao-su-fu-wu-de-liu-cheng-sqlserver/">
-        </link>
-        <updated>2019-08-16T14:02:01.000Z</updated>
-        <content type="html"><![CDATA[<ol>
-<li>创建企业地理数据库<br>
-<img src="https://blackfish-wu.github.io//post-images/1565964186616.png" alt="" loading="lazy"></li>
-<li>创建数据库连接<br>
-<img src="https://blackfish-wu.github.io//post-images/1565964341417.png" alt="" loading="lazy"></li>
-<li>将待发布为要素服务的数据导入该数据库中。<br>
-<img src="https://blackfish-wu.github.io//post-images/1565964347628.png" alt="" loading="lazy"></li>
-<li>右键选择该要素，将其注册为版本化数据<br>
-<img src="https://blackfish-wu.github.io//post-images/1565964354123.png" alt="" loading="lazy"></li>
-<li>创建arcgis server，账号密码为arcgis server manager登录的账号密码<br>
-<img src="https://blackfish-wu.github.io//post-images/1565964371531.png" alt="" loading="lazy"></li>
-<li>打开服务属性。<br>
-<img src="https://blackfish-wu.github.io//post-images/1565964378603.png" alt="" loading="lazy"></li>
-<li>为服务配置数据库连接属性。在选择“是否跟发布的数据库连接相同连接（same as pubilisher database connection）”选项时，应注意arcgis server服务登录的账号是否为本地账户（打开“运行”，输入services.msc，找到arcgis server 服务，右键属性，打开登录标签，查看是否为本地系统账户），如果是就勾选。<br>
-<img src="https://blackfish-wu.github.io//post-images/1565964387856.png" alt="" loading="lazy"></li>
-<li>将放置到SDE的图层加载到ArcMap上，选择share as service，勾选要素服务进行发布。</li>
-<li>打开manager， 查看服务是否能正常开启。</li>
-</ol>
 ]]></content>
     </entry>
 </feed>
