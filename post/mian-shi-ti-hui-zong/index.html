@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>面试题汇总 | 黑鱼的池塘</title>
 <meta name="description" content="温故而知新" />
-<link rel="shortcut icon" href="https://blackfish-wu.github.io//favicon.ico?v=1585497051996">
+<link rel="shortcut icon" href="https://blackfish-wu.github.io//favicon.ico?v=1586275910441">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://blackfish-wu.github.io//styles/main.css">
@@ -20,7 +20,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://blackfish-wu.github.io/">
-  <img class="avatar" src="https://blackfish-wu.github.io//images/avatar.png?v=1585497051996" alt="">
+  <img class="avatar" src="https://blackfish-wu.github.io//images/avatar.png?v=1586275910441" alt="">
   </a>
   <h1 class="site-title">
     黑鱼的池塘
@@ -80,7 +80,7 @@
                 2020-03-29
               </span>
               <span>
-                4 min read
+                11 min read
               </span>
               
             </div>
@@ -92,65 +92,233 @@
 <ol>
 <li>TCP和UDP的区别和优缺点？<br>
 <a href="https://blog.csdn.net/xiaobangkuaipao/article/details/76793702">参考</a></li>
-<li>三次握手四次挥手的过程</li>
-<li>能不能两次握手</li>
-<li>能不能三次挥手</li>
-<li>如何保证可靠性<br>
+<li>三次握手四次挥手的过程
+<ul>
+<li>三次握手：
+<ul>
+<li>客户端和服务器都建立TCB</li>
+<li>客户端向服务端发送TCP报文，其中SYN指针设置为1，消耗一个序列号，进入同步发送状态；不能携带数据。</li>
+<li>服务端向客户端发送TCP报文，其中SYN指针设置为1，ACK指针设置为1，消耗自己序列号1个，确认序列号为客户序列号加1，进入同步接收状态；不能携带数据。</li>
+<li>客户端发送，ACK指针设置为1，确认序列号为服务端序列号，此时可以携带数据，如果不发送数据就不消耗序列号。进入已建立状态。</li>
+<li>服务端收到确认报文后也进入建立状态。</li>
+</ul>
+</li>
+<li>四次挥手
+<ul>
+<li>客户端发送FIN指针为1，序列号为x；进入终止等待1状态；</li>
+<li>服务端发送ACK指针为1，序列号为y，确认序列号为x+1；服务端进入关闭等待状态；客户端收到时进入终止等待2状态；</li>
+<li>服务端发送FIN指针为1，FIN=1，ACK=1，seq=z，ack=x+1；服务端进入关闭等待状态；</li>
+<li>客户端接收后发送一个ACK=1，ack，seq的报文，进入时间等待状态；等待两倍最大报文段寿命后关闭。</li>
+<li>服务端接收到后直接关闭。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>能不能两次握手<br>
+不能。假如客户端发送了一次握手后由于网络延迟原因晚到达，在这期间要是客户端再次发送确认，在服务器收到第二次同步请求时就建立了连接，此时如果第一次同步请求由于网络通畅到达了，那么就会造成两次建立连接，导致不必要的错误或资源浪费。</li>
+<li>能不能三次挥手<br>
+不能。需要服务端传输数据的时间。</li>
+<li>如果建立连接后客户端故障咋办。<br>
+有计数保活器，每次接收到客户端资源都会更新保活器，如果两个小时没接收到，那就发送探测报文端，没75秒发送一个，一连10个都没反应就关闭连接。</li>
+<li>如何保证可靠性
+<ul>
+<li>超时重传：有一个定时器，超时没收到确认码就重新传输。</li>
+<li>数据报检验：端对端的检验，防止到达目的IP后，在分用的时候可能会出现问题。</li>
+<li>流量控制：通过滑动窗口控制流量</li>
+<li>拥塞控制：慢开始（一开始就发送大量数据容易拥塞）、拥塞避免 （拥塞窗口缓慢变大）、快速重传和恢复（一个没确认，但后续三个确认了，就迅速重传没确认那个）</li>
+<li>数据包重排序：</li>
+<li>停止等待协议：发完一个分组就停止发送，等待对方发送确认码。<br>
 <a href="https://blog.csdn.net/guanghuichenshao/article/details/81916277">2-5参考</a></li>
-<li>TCP/IP有几层？每一层的作用？MAC地址在哪层？</li>
-<li>有什么应用层协议</li>
-<li>IPv4、IPv6</li>
-<li>ARP协议</li>
-<li>char*和char[10]的sizeof</li>
+</ul>
+</li>
+<li>TCP/IP有几层？每一层的作用？MAC地址在哪层？
+<ul>
+<li>四层：应用层，传输层，网络层，链路层</li>
+<li>链路层：物理接口方面的，以太网协议，点对点协议</li>
+</ul>
+</li>
+<li>有什么应用层协议<br>
+HTTP、DNS、DHCP、SMTP</li>
+<li>IPv4、IPv6
+<ul>
+<li>长度不同，一个32位一个128位</li>
+<li>安全性不同，ipv6可以加密传输</li>
+<li>路由表大小不同，IPv6的路由表相比IPv4的更小</li>
+<li>IPv6的组播支持以及对流的支持要强于IPv4</li>
+<li>IPv6使用NDP，IPv4使用ARP</li>
+</ul>
+</li>
+<li>ARP协议<br>
+地址解析协议，先查ARP缓存，然后先匹配网络号和子网号，再匹配默认，广播方式发送局域网。</li>
+<li>http状态码<br>
+200是请求请求成功，300重定向，400客户端错误，500是服务端错误。</li>
+<li>request和response<br>
+request发送请求头，包括方法、URI和协议版本，请求字段，请求主体；response中有响应头，包括协议版本，状态码，状态信息，返回头和主体。</li>
 </ol>
 <h3 id="算法">算法</h3>
 <ol>
-<li>数组与链表的区别</li>
-<li>二分查找过程</li>
-<li>二叉树遍历方式，后序过程</li>
-<li>快排过程</li>
-<li>二叉树先序遍历和后序遍历结果相同是什么二叉树</li>
-<li>双向链表节点删除</li>
-<li>单链表给两个指针怎么检验是否有环</li>
-<li>堆排序为啥不稳定和建堆时间</li>
+<li>
+<p>数组与链表的区别</p>
+<ul>
+<li>数组连续存储，链表不连续</li>
+<li>数组通过下标访问，链表通过结点存放的地址访问</li>
+<li>数组定长，链表不定长</li>
+</ul>
+</li>
+<li>
+<p>二分查找过程<br>
+取中位数进行比较，然后对</p>
+</li>
+<li>
+<p>二叉树遍历方式，后序过程<br>
+前序、中序、后序遍历。</p>
+</li>
+<li>
+<p>快排过程</p>
+</li>
+<li>
+<p>二叉树先序遍历和后序遍历结果相同是什么二叉树<br>
+只有一个父节点的树</p>
+</li>
+<li>
+<p>双向链表节点删除</p>
+</li>
+<li>
+<p>单链表给两个指针怎么检验是否有环。快慢指针的方式，</p>
+</li>
+<li>
+<p>堆排序为啥不稳定和建堆时间<br>
+自上而下建堆是O(nlogn)，自下而上是O(n)</p>
+</li>
+<li>
+<p>循环队列三种方式</p>
+<ul>
+<li>设定一个flag，初始化为false，在存的时候为true，取的时候为false</li>
+<li>设定一个count值</li>
+<li>空出一个值</li>
+</ul>
+</li>
 </ol>
 <h3 id="java">Java</h3>
 <ol>
-<li>面向对象的设计要素</li>
-<li>Java的基本变量有哪些？类型占用字节？</li>
-<li>构造函数能被重写吗？能被重载吗？子类的super是重写吗？</li>
-<li>List和Set区别是什么？Set为什么能去重？</li>
-<li>HashMap底层原理：bucket扩容？k冲突了怎么办？</li>
-<li>Volatile用过吗？有什么作用？</li>
-<li>接口和抽象类的区别有哪些？能被实例化吗？里面变量有什么不同吗？方法有什么不同？</li>
-<li>线程的创建方式有哪几种？创建方法说下？内存模型中线程私有的有哪些？</li>
-<li>String abc = new Stirng(&quot;111&quot;)，新建了几个对象？abc指向哪？</li>
+<li>面向对象的设计要素
+<ul>
+<li>封装性</li>
+<li>多态性</li>
+<li>继承性</li>
+</ul>
+</li>
+<li>设计原则
+<ul>
+<li>单一职责原则（Single Responsibility Principle）：一个类只负责一项职责</li>
+<li>接口隔离原则（Interface Segregation Principle）：一个类对另一个类的依赖应该建立在最小接口上</li>
+<li>依赖倒转原则（Dependence Inversion Principle）：高层模块不要依赖低层模块，二者都应该依赖其抽象；抽象不应该依赖细节，细节应该依赖抽象；面向接口编程</li>
+<li>里氏替换原则（Liskov Substitution Principle）：在子类中尽量不要重写父类方法</li>
+<li>开闭原则（Open Closed Principle）：对扩展开放，对修改关闭</li>
+<li>迪米特法则：对象与对象之间应该保持最少的了解；只和直接朋友（成员变量、返回类型、参数类型）通信，即类方法中不要以陌生对象作为局部变量。</li>
+<li>合成复用原则（Composite Reuse Principle）：尽量使用合成或聚合而不是继承。</li>
+</ul>
+</li>
+<li>Java的基本变量有哪些？类型占用字节？<br>
+字符型：char。字节大小：2<br>
+布尔型：boolean。Java虚拟机规定为4个字节。<br>
+整数型：byte、short、int、long。字节大小：1 2 4 8<br>
+浮点型：float、double。字节大小：4 8<br>
+空类型：void<br>
+内部使用：returnAddress</li>
+<li>构造函数能被重写吗？能被重载吗？子类的super是重写吗？<br>
+能被重载，不能被重写。子类的super不是重写，是调用，必须在构造函数的第一行。</li>
+<li>List和Set区别是什么？Set为什么能去重？
+<ul>
+<li>List能存放重复对象，Set不可以</li>
+<li>List有序，Set无序</li>
+</ul>
+</li>
+<li>HashMap底层原理：bucket扩容？k冲突了怎么办？<br>
+扩容是通过复制来的，扩容后的大小为2的幂次方，这跟二次hash计算有关系，然后就是进行拷贝。hash冲突了就先检查bin的第一个node中key值是否相等，如果相等就直接返回，否则就检查第一个node的类型，如果是不是TreeNode，那么就按照链表方式查到链尾，然后添加元素，但是这个时候要判断链长是否超过阈值，默认是8，如果超过了，就将该链转为红黑树；如果检查为TreeNode类型，则直接TreeNode添加结点方法。</li>
+<li>Volatile用过吗？有什么作用？<br>
+使对象具备可见性，即当对volatile对象进行写操作时，会更新到主存中，其他线程的读需要到主内存中进行读取，内在原理是内存屏障，因此也能防止指令重排。</li>
+<li>Java内存机制<br>
+每个线程有私有栈，方法区存放类（包含静态变量），堆存放对象。</li>
+<li>接口和抽象类的区别有哪些？里面变量有什么不同吗？方法有什么不同？
+<ul>
+<li>类继承一个抽象类，却可以实现多个接口</li>
+<li>抽象类方法有默认实现，接口不存在默认实现</li>
+<li>抽象类访问修饰符都可以用，接口只能是public</li>
+<li>都不可以被实例化</li>
+</ul>
+</li>
+<li>线程的创建方式有哪几种？创建方法说下？
+<ul>
+<li>继承Thread，重写run方法</li>
+<li>实现Callable，重写call方法</li>
+<li>实现Runable，重写run方法</li>
+</ul>
+</li>
+<li>String abc = new Stirng(&quot;111&quot;)，新建了几个对象？abc指向哪？<br>
+创建了两个对象，一个在常量池中，一个从常量池拷贝到堆中，abc指向堆中String对象。</li>
 <li>对象和类的差异</li>
-<li>全局变量和局部变量的存储位置</li>
-<li>malloc内存分配的位置</li>
-<li>strlen和sizeof</li>
-<li>引用和指针</li>
-<li>常用设计模式</li>
-<li>虚函数和接口的差异</li>
-<li>结构体内存对齐</li>
+<li>常用设计模式
+<ul>
+<li>创建者模式
+<ul>
+<li>简单工厂模式，工厂方法模式</li>
+<li>单例模式</li>
+</ul>
+</li>
+<li>结构型模式
+<ul>
+<li>原型：实现clone</li>
+<li>适配器：类适配器，方法适配器</li>
+<li>代理模式：静态代理，动态代理</li>
+</ul>
+</li>
+<li>行为者模式
+<ul>
+<li>策略者（多态）</li>
+<li>观察者：注册观察者</li>
+<li>责任链模式：ClassLoader？</li>
+</ul>
+</li>
+</ul>
+</li>
 <li>多态了解</li>
-<li>JVM类加载机制</li>
+<li>JVM类加载机制
+<ul>
+<li>（1）加载：查找并装载类型的二进制数据</li>
+<li>（2）连接 ：验证（四次class验证），准备（类变量分配内存并初始化），解析（符号引用转为直接引用）</li>
+<li>（3）初始化：把类变量初始化为正确的初始值</li>
+</ul>
+</li>
+<li>GC<br>
+分代：young、old</li>
+<li>字节码</li>
 </ol>
 <h3 id="操作系统">操作系统</h3>
 <p>《深入理解计算机系统》 《Linux内核设计与实现》《深入理解linux内核》《Linux高性能服务器编程》</p>
 <ol>
-<li>进程间通讯用什么</li>
-<li>虚拟机内存机制</li>
-<li>进程阻塞是怎么做到的</li>
+<li>进程间通讯用什么<br>
+管道、FIFO、消息队列、信号量、共享内存</li>
+<li>进程阻塞是怎么做到的<br>
+等锁、IO</li>
 <li>多线程是什么</li>
-<li>有哪些锁分别解释一下</li>
+<li>有哪些锁分别解释一下
+<ul>
+<li>乐观锁：认为数据不会被修改，所以不会加锁，只会在更新数据时做检查，通常使用CAS算法</li>
+<li>悲观锁：认为数据会被修改，加锁。</li>
+</ul>
+</li>
 <li>缓存的作用以及缓存替换算法</li>
-<li>线程的实现方式</li>
 <li>虚拟文件系统</li>
-<li>进程和线程之间的区别</li>
+<li>进程和线程之间的区别
+<ul>
+<li>进程：线程是CPU调度的最小单元，切换需要把当前进程寄存器中数据存储到PCB中，然后把切换目标进程PCB中的数据赋值到寄存器中。</li>
+<li>线程：是进程调度的最小计算单元，共享内存。切换时把当前线程的指令地址指针存放到TCB中，将下个线程TCB中的指令地址指针存放到esp（CPU取值执行所用的寄存器）中</li>
+</ul>
+</li>
 </ol>
 <h3 id="数据库">数据库</h3>
-<p>《数据库原理，编程与性能》《MySQL必知必会》《Redis设计与实现》</p>
+<p>《MySQL必知必会》《数据库原理，编程与性能》《Redis设计与实现》</p>
 <h4 id="数据库-2">数据库</h4>
 <ol>
 <li>索引：B树、B+树底层结构，索引失效条件</li>
@@ -158,12 +326,14 @@
 <li>关系型数据库三范式</li>
 <li>存储引擎：InnoDB和MyISAM对比</li>
 <li>数据库的锁：行锁，表锁，页级锁，意向锁，读锁，写锁，悲观锁，乐观锁等等</li>
-<li>数据库隔离级别：脏读、不可重复读、幻读</li>
+<li>数据库隔离级别，脏读、不可重复读、幻读</li>
 <li>事务的ACID理论</li>
 <li>查询优化：explain，慢查询，show profile</li>
 <li>分布式：分库分表，读写分离</li>
+<li>sql乐观锁悲观锁</li>
 </ol>
 <h4 id="redis相关">Redis相关</h4>
+<p>《Redis设计与实现》</p>
 <ol>
 <li>Redis 特点</li>
 <li>Redis 底层数据结构：跳表，字典</li>
